@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+    --primary: #fac400;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #080709;
+    color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #25222d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fac400;
+}
+
+/* Hero background image */
+.hero-bg-container {
+  position: relative;
+  background-image: url('/hero-bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-color: #080709;
+}
+
+/* Contrast Overlay */
+.hero-overlay-dark {
+  background: linear-gradient(180deg,
+      rgba(8, 7, 9, 0.35) 0%,
+      rgba(8, 7, 9, 0.05) 40%,
+      rgba(8, 7, 9, 0.65) 85%,
+      #080709 100%);
+}
+
+.hero-glow-accent {
+  position: absolute;
+  top: 25%;
+  right: 12%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(250, 196, 0, 0.25) 0%, rgba(250, 196, 0, 0.05) 45%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.btn-primary-glow {
+  background: linear-gradient(135deg, #fac400 0%, #ffd633 100%);
+  color: #080709;
+  font-weight: 700;
+  box-shadow: 0 0 25px rgba(250, 196, 0, 0.5), 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-glow:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 35px rgba(250, 196, 0, 0.8), 0 8px 25px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #ffe066 0%, #fac400 100%);
+}
+
+.card-hero-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hero-glass:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(250, 196, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(250, 196, 0, 0.15);
+}
+
+@keyframes lightPulse {
+
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-glow {
+  animation: lightPulse 6s ease-in-out infinite;
+}
+
+.header-glass {
+  background: transparent;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-bottom: none;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(180deg, #ffffff 0%, #fff2b3 30%, #fac400 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Stacking Service Cards Utility */
+.stacked-card {
+  position: sticky;
+  top: 6rem;
+  will-change: transform;
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .stacked-card {
+    top: 6.5rem;
+  }
+}
+
+/* Gauge Arc styling */
+.gauge-arc {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 44;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+/* Infinite Horizontal Marquee Keyframes */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 28s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 28s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
