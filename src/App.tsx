@@ -1482,14 +1482,6 @@ export function App() {
                   onClick={() => setIsContactModalOpen(true)}
                   className="btn-primary-glow inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase cursor-pointer group text-[#080709]"
                 >
-                  <span>View All Products</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </button>
-
-                <button
-                  onClick={() => setIsContactModalOpen(true)}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase cursor-pointer border border-white/20 hover:border-[#fac400] text-white hover:text-[#fac400] bg-white/5 hover:bg-white/10 transition-all duration-300 backdrop-blur-md group"
-                >
                   <span>Request a Product Demo</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
