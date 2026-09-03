@@ -34,7 +34,9 @@ import {
   Infinity,
   RefreshCcw,
   Activity,
-  Database
+  Database,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -415,110 +417,7 @@ const servicesList: ServiceItem[] = [
 
 
 
-function AboutGrowthGraph() {
-  const [timeframe, setTimeframe] = useState<'Weekly' | 'Monthly' | 'Yearly'>('Weekly');
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
-  const bars = [
-    { month: 'Jan', value: 60, color: 'bg-[#3b82f6]', heightPct: '60%' },
-    { month: 'Feb', value: 80, color: 'bg-[#f59e0b]', heightPct: '80%' },
-    { month: 'Marc', value: 40, color: 'bg-[#3b82f6]', heightPct: '40%' },
-    { month: 'Apr', value: 25, color: 'bg-[#f59e0b]', heightPct: '25%' },
-    { month: 'May', value: 58, color: 'bg-[#3b82f6]', heightPct: '58%' },
-    { month: 'Jun', value: 53, color: 'bg-[#f59e0b]', heightPct: '53%' },
-    { month: 'July', value: 60, color: 'bg-[#3b82f6]', heightPct: '60%' },
-    { month: 'Aug', value: 22, color: 'bg-[#f59e0b]', heightPct: '22%' }
-  ];
-
-  return (
-    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-[#111016] via-[#0d0c11] to-[#07060a] border border-white/10 p-7 sm:p-9 shadow-[0_25px_60px_rgba(0,0,0,0.9)] group hover:border-[#fac400]/30 transition-all duration-500 min-h-[480px] sm:min-h-[520px] md:min-h-[560px] flex flex-col justify-between">
-
-
-      {/* CARD HEADER: TITLE & WEEKLY DROPDOWN & THREE DOTS */}
-      <div className="flex items-center justify-between relative z-20 mb-6">
-        <h3 className="text-xl sm:text-2xl font-normal text-white tracking-tight font-sans">
-          Customer Map
-        </h3>
-
-        <div className="flex items-center gap-3 relative">
-          {/* Timeframe Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1.5 text-xs sm:text-sm text-gray-300 hover:text-white font-normal bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl transition-colors cursor-pointer"
-            >
-              <span>{timeframe}</span>
-              <span className="text-[10px] text-gray-400">▼</span>
-            </button>
-
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-28 bg-[#181622] border border-white/15 rounded-xl shadow-2xl overflow-hidden z-30 py-1">
-                {(['Weekly', 'Monthly', 'Yearly'] as const).map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => {
-                      setTimeframe(option);
-                      setDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-3 py-1.5 text-xs font-normal transition-colors ${timeframe === option ? 'text-[#fac400] bg-white/5 font-semibold' : 'text-gray-300 hover:bg-white/5 hover:text-white'}`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Three Dots Icon */}
-          <button className="text-gray-400 hover:text-white text-lg font-bold px-1 transition-colors cursor-pointer">
-            ⋮
-          </button>
-        </div>
-      </div>
-
-      {/* BAR CHART AREA WITH Y-AXIS & X-AXIS */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end pt-4">
-        <div className="flex items-end gap-3 sm:gap-5 h-[320px] sm:h-[380px] md:h-[420px] pl-8 relative">
-          {/* Y-AXIS LABELS */}
-          <div className="absolute left-0 top-0 bottom-6 flex flex-col justify-between text-xs sm:text-sm font-normal text-gray-400 font-sans">
-            <span>80</span>
-            <span>60</span>
-            <span>40</span>
-            <span>20</span>
-            <span>0</span>
-          </div>
-
-          {/* BARS CONTAINER */}
-          <div className="w-full h-full flex items-end justify-between px-2 pb-6 gap-2 sm:gap-3">
-            {bars.map((bar, idx) => (
-              <div key={idx} className="flex flex-col items-center gap-2 group/bar flex-1 h-full justify-end">
-                {/* Vertical Pill Bar */}
-                <div className="w-3.5 sm:w-5 bg-white/5 rounded-full relative overflow-hidden flex items-end h-full">
-                  <motion.div
-                    initial={{ height: '0%' }}
-                    whileInView={{ height: bar.heightPct }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                    className={`w-full rounded-full ${bar.color} shadow-lg group-hover/bar:brightness-125 transition-all duration-300`}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* X-AXIS LABELS */}
-        <div className="flex items-center justify-between pl-8 px-2 text-xs sm:text-sm font-normal text-gray-300 font-sans pt-3 border-t border-white/5">
-          {bars.map((bar, idx) => (
-            <span key={idx} className="text-center flex-1">
-              {bar.month}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 interface IdeaToSolutionStep {
   num: string;
@@ -550,6 +449,18 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
 
     return () => clearInterval(timer);
   }, [isPaused]);
+
+  const handleScrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -380, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+    }
+  };
 
   const products = [
     {
@@ -597,12 +508,24 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
   ];
 
   return (
-    <div className="relative w-full mb-12">
-      {/* LEFT FADE OVERLAY */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-[#080709] to-transparent z-10" />
-      {/* RIGHT FADE OVERLAY */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-[#080709] to-transparent z-10" />
+    <div className="relative w-full mb-12 group/carousel">
+      {/* CAROUSEL PREV / LEFT BUTTON */}
+      <button
+        onClick={handleScrollLeft}
+        aria-label="Scroll Carousel Left"
+        className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#14121a]/95 text-[#fac400] hover:bg-[#fac400] hover:text-[#080709] border border-[#fac400]/40 shadow-[0_4px_20px_rgba(0,0,0,0.9),0_0_15px_rgba(250,196,0,0.25)] backdrop-blur-md flex items-center justify-center transition-all duration-300 cursor-pointer group/btn active:scale-95"
+      >
+        <ChevronLeft className="w-6 h-6 transition-transform group-hover/btn:-translate-x-0.5" />
+      </button>
 
+      {/* CAROUSEL NEXT / RIGHT BUTTON */}
+      <button
+        onClick={handleScrollRight}
+        aria-label="Scroll Carousel Right"
+        className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#14121a]/95 text-[#fac400] hover:bg-[#fac400] hover:text-[#080709] border border-[#fac400]/40 shadow-[0_4px_20px_rgba(0,0,0,0.9),0_0_15px_rgba(250,196,0,0.25)] backdrop-blur-md flex items-center justify-center transition-all duration-300 cursor-pointer group/btn active:scale-95"
+      >
+        <ChevronRight className="w-6 h-6 transition-transform group-hover/btn:translate-x-0.5" />
+      </button>
       {/* HORIZONTAL SCROLL CONTAINER */}
       <div
         ref={scrollContainerRef}
@@ -616,41 +539,44 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
           <div
             key={pIdx}
             onClick={onOpenModal}
-            className="snap-start shrink-0 w-[290px] sm:w-[340px] md:w-[370px] bg-gradient-to-b from-[#14121a] to-[#0c0a11] border border-white/10 hover:border-[#fac400]/40 rounded-3xl p-5 sm:p-6 transition-all duration-300 group hover:-translate-y-1.5 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(250,196,0,0.12)] flex flex-col justify-between relative overflow-hidden cursor-pointer"
+            className="snap-start shrink-0 w-[290px] sm:w-[340px] md:w-[370px] bg-gradient-to-b from-[#14121a] to-[#0c0a11] border border-white/10 hover:border-[#fac400]/40 rounded-3xl transition-all duration-300 group hover:-translate-y-1.5 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(250,196,0,0.12)] flex flex-col justify-between relative overflow-hidden cursor-pointer"
           >
-            {/* TOP IMAGE CONTAINER */}
-            <div>
-              <div className="relative rounded-2xl overflow-hidden mb-5 h-44 sm:h-48 w-full border border-white/10 group-hover:border-[#fac400]/30 transition-colors">
-                <img
-                  src={prod.image}
-                  alt={prod.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#14121a] via-black/20 to-transparent pointer-events-none" />
+            {/* TOP IMAGE CONTAINER - 0 PADDING FLUSH WITH CARD EDGES */}
+            <div className="relative h-48 sm:h-52 w-full overflow-hidden border-b border-white/10 group-hover:border-[#fac400]/30 transition-colors shrink-0">
+              <img
+                src={prod.image}
+                alt={prod.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#14121a] via-black/20 to-transparent pointer-events-none" />
 
-                {/* FLOATING CATEGORY BADGE */}
-                <div className="absolute top-3 left-3 bg-[#080709]/85 backdrop-blur-md border border-[#fac400]/30 text-[#fac400] text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase font-mono shadow-md">
-                  {prod.badge}
-                </div>
+              {/* FLOATING CATEGORY BADGE */}
+              <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 bg-[#080709]/85 backdrop-blur-md border border-[#fac400]/30 text-[#fac400] text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase font-mono shadow-md z-10">
+                {prod.badge}
               </div>
+            </div>
 
-              {/* CARD TITLE & DESCRIPTION */}
-              <h3 className="text-xl font-bold text-white tracking-tight mb-2 font-sans group-hover:text-[#fac400] transition-colors leading-snug">
-                {prod.title}
-              </h3>
+            {/* CARD CONTENT AREA WITH PADDING */}
+            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                {/* CARD TITLE & DESCRIPTION */}
+                <h3 className="text-xl font-bold text-[#fac400] tracking-tight mb-2 font-sans leading-snug">
+                  {prod.title}
+                </h3>
 
-              <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-5">
-                {prod.desc}
-              </p>
+                <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-4">
+                  {prod.desc}
+                </p>
 
-              {/* KEY FEATURES CHECKLIST */}
-              <div className="space-y-2 border-t border-white/10 pt-4">
-                {prod.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-2.5 text-xs text-gray-200">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#fac400] shrink-0" />
-                    <span>{feat}</span>
-                  </div>
-                ))}
+                {/* KEY FEATURES CHECKLIST DIRECTLY AFTER TEXT */}
+                <div className="space-y-2.5 pt-1">
+                  {prod.features.map((feat, fIdx) => (
+                    <div key={fIdx} className="flex items-center gap-2.5 text-xs text-gray-200">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#fac400] shrink-0" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -1288,15 +1214,22 @@ export function App() {
         <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            {/* LEFT COLUMN: ABOUT US CUSTOMER MAP BAR CHART */}
+            {/* LEFT COLUMN: ABOUT US IMAGE */}
             <motion.div
               initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 25, scale: prefersReducedMotion ? 1 : 0.96 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full"
+              className="w-full relative group"
             >
-              <AboutGrowthGraph />
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.9)] bg-[#121118] group-hover:border-[#fac400]/40 transition-all duration-500">
+                <img
+                  src="/about us new img.png"
+                  alt="About Aamesh Consulting Services"
+                  className="w-full h-auto object-cover rounded-3xl transform transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0e0c12]/40 via-transparent to-transparent pointer-events-none" />
+              </div>
             </motion.div>
 
             {/* RIGHT COLUMN: TEXT CONTENT & 4 VALUE POINTS */}
