@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowUpRight,
   Cpu,
@@ -147,7 +147,7 @@ const servicesList: ServiceItem[] = [
     title: 'IT Services & Infrastructure Management',
     desc: 'Reliable technology infrastructure and IT support designed to improve performance, availability, security, and operational efficiency.',
     cta: 'Explore IT Services →',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/IT Services & Infrastructure Management.webp',
     tags: ['Infrastructure', '24/7 Support', 'DevOps', 'High Availability'],
     metricLabel: 'Infrastructure Health',
     metricValue: '99.99% Uptime',
@@ -174,7 +174,7 @@ const servicesList: ServiceItem[] = [
     title: 'Cloud Computing & Digital Transformation',
     desc: 'Modernize infrastructure, applications, and business operations with scalable cloud and digital transformation strategies.',
     cta: 'Explore Cloud & Digital →',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Cloud Computing & Digital Transformation.webp',
     tags: ['AWS / Azure / GCP', 'Cloud Native', 'Legacy Migration', 'Scalability'],
     metricLabel: 'Cloud Acceleration',
     metricValue: '4.8x Velocity',
@@ -201,7 +201,7 @@ const servicesList: ServiceItem[] = [
     title: 'ERP & SAP Consulting',
     desc: 'Support enterprise transformation through SAP S/4HANA migration, ERP consulting, implementation, integration, and optimization.',
     cta: 'Explore ERP Solutions →',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/ERP & SAP Consulting.webp',
     tags: ['SAP S/4HANA', 'ERP Integration', 'Process Mining', 'Supply Chain'],
     metricLabel: 'ERP System Sync',
     metricValue: '$12.4M Saved',
@@ -228,7 +228,7 @@ const servicesList: ServiceItem[] = [
     title: 'AI, Machine Learning & Gen AI',
     desc: 'Apply AI and generative AI to automate knowledge work, improve decision-making, analyze information, and create intelligent business experiences.',
     cta: 'Explore AI Solutions →',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/AI, Machine Learning & Gen AI.webp',
     tags: ['Generative AI', 'Custom LLMs', 'RAG Search', 'Predictive ML'],
     metricLabel: 'GenAI Efficiency',
     metricValue: '+85% Productivity',
@@ -255,7 +255,7 @@ const servicesList: ServiceItem[] = [
     title: 'Product Development & Application Engineering',
     desc: 'Design and build scalable web, mobile, and enterprise applications—from concept and architecture through development and deployment.',
     cta: 'Explore Product Development →',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Product Development & Application Engineering.webp',
     tags: ['Full-Stack', 'React / Node / Mobile', 'SaaS Architecture', 'UX/UI Design'],
     metricLabel: 'Engineering Speed',
     metricValue: '100% On-Time',
@@ -282,7 +282,7 @@ const servicesList: ServiceItem[] = [
     title: 'Data Analytics & Business Intelligence',
     desc: 'Turn business data into actionable insights through analytics, reporting, dashboards, and intelligent decision support.',
     cta: 'Explore Data Solutions →',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Data Analytics & Business Intelligence.webp',
     tags: ['Snowflake / Databricks', 'PowerBI / Tableau', 'ETL Pipelines', 'Data Warehouse'],
     metricLabel: 'Data Throughput',
     metricValue: '2.4M Records/s',
@@ -309,7 +309,7 @@ const servicesList: ServiceItem[] = [
     title: 'Cybersecurity & Risk Management',
     desc: 'Strengthen technology environments through security, risk management, governance, compliance, and technology controls.',
     cta: 'Explore Cybersecurity →',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Cybersecurity & Risk Management.webp',
     tags: ['Zero-Trust', 'SOC Monitoring', 'ISO/SOC2 Compliance', 'Penetration Testing'],
     metricLabel: 'Security Index',
     metricValue: '100% Compliant',
@@ -336,7 +336,7 @@ const servicesList: ServiceItem[] = [
     title: 'Automation & Intelligent Operations',
     desc: 'Use RPA, intelligent automation, and modern engineering practices to reduce repetitive work and improve operational efficiency.',
     cta: 'Explore Automation →',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Automation & Intelligent Operations.png',
     tags: ['UiPath / RPA', 'Workflow Engines', 'OCR Extraction', 'Ops Automation'],
     metricLabel: 'Hours Saved',
     metricValue: '12,400 hrs/yr',
@@ -363,7 +363,7 @@ const servicesList: ServiceItem[] = [
     title: 'Strategic Consulting & PMO',
     desc: 'Align technology initiatives with business priorities through strategic consulting, process optimization, project/program coordination, and PMO support.',
     cta: 'Explore Consulting →',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Strategic Consulting & PMO.webp',
     tags: ['Fractional CTO', 'PMO Office', 'Agile Delivery', 'Tech Strategy'],
     metricLabel: 'Project Alignment',
     metricValue: '100% Delivery',
@@ -390,7 +390,7 @@ const servicesList: ServiceItem[] = [
     title: 'Staffing Solutions',
     desc: 'Access qualified technology professionals across cloud, ERP, full-stack development, DevOps, automation, and other specialized technology areas.',
     cta: 'Explore Staffing →',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/Staffing Solutions.webp',
     tags: ['Dedicated Engineers', 'Staff Augmentation', 'Contract to Hire', 'Domain Experts'],
     metricLabel: 'Talent Placement',
     metricValue: '48hr Onboarding',
@@ -526,48 +526,141 @@ interface IdeaToSolutionStep {
   desc: string;
 }
 
-function TimelineNodeDot({ scrollYProgress, threshold }: { scrollYProgress: any; threshold: number }) {
-  // Activate dot as scroll line reaches threshold
-  const nodeScale = useTransform(scrollYProgress, [threshold - 0.12, threshold + 0.05], [0.85, 1.25]);
-  const nodeGlow = useTransform(
-    scrollYProgress,
-    [threshold - 0.12, threshold + 0.05],
-    ['0 0 0px rgba(250,196,0,0)', '0 0 25px rgba(250,196,0,0.95)']
-  );
-  const dotScale = useTransform(scrollYProgress, [threshold - 0.12, threshold + 0.05], [0.4, 1.1]);
+function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = React.useState(false);
+
+  // Auto-scroll every 3.5 seconds
+  React.useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+        const scrollStep = 370;
+
+        if (scrollLeft >= maxScroll - 10) {
+          scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollContainerRef.current.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+      }
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const products = [
+    {
+      badge: 'AGILE & DELIVERY',
+      title: 'Project Management Suite',
+      desc: 'Agile project, task, sprint, workflow, and delivery management built for enterprise teams.',
+      image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=80',
+      features: ['Sprint & Kanban Boards', 'Gantt & Timeline Tracking', 'Resource & Workload Management']
+    },
+    {
+      badge: 'TALENT & HR OPS',
+      title: 'HR & Recruitment Platform',
+      desc: 'Streamline candidate pipelines, interview scheduling, offer letters, and onboarding.',
+      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=80',
+      features: ['ATS Candidate Pipelines', 'Automated Interview Scheduling', 'Digital Employee Onboarding']
+    },
+    {
+      badge: 'FINANCE & INVOICING',
+      title: 'Billing & Invoicing System',
+      desc: 'Automate invoicing, recurring payments, revenue tracking, and account receivables.',
+      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1400&q=80',
+      features: ['Automated Recurring Invoices', 'Multi-Currency Gateway Sync', 'Real-Time Revenue Analytics']
+    },
+    {
+      badge: 'GEN AI & OCR',
+      title: 'AI Assistant & Document Intelligence',
+      desc: 'Analyze business documents, extract data automatically, and power RAG knowledge search.',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=80',
+      features: ['RAG Knowledge Search Engine', 'Automated PDF/OCR Extraction', 'Custom LLM Agent Integration']
+    },
+    {
+      badge: 'PAYROLL & HR',
+      title: 'Employee Lifecycle & Payroll',
+      desc: 'Complete HRMS: attendance tracking, automated payroll, leave management, and appraisals.',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80',
+      features: ['Automated Payroll Processing', 'Biometric & Attendance Sync', 'Performance & Appraisal Engine']
+    },
+    {
+      badge: 'ACADEMIC & CAMPUS',
+      title: 'School & College Management',
+      desc: 'All-in-one campus ERP for admissions, student records, fee collection, and grading.',
+      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80',
+      features: ['Student & Parent Portals', 'Online Fee Collection & Receipts', 'Exam & Grade Card Generator']
+    }
+  ];
 
   return (
-    <motion.div
-      style={{
-        scale: nodeScale,
-        boxShadow: nodeGlow,
-      }}
-      className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#080709] border-2 border-[#fac400] items-center justify-center z-20 transition-colors duration-300"
-    >
-      <motion.div
-        style={{ scale: dotScale }}
-        className="w-2.5 h-2.5 rounded-full bg-[#fac400] shadow-[0_0_12px_#fac400]"
-      />
-    </motion.div>
+    <div className="relative w-full mb-12">
+      {/* LEFT FADE OVERLAY */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-[#080709] to-transparent z-10" />
+      {/* RIGHT FADE OVERLAY */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-[#080709] to-transparent z-10" />
+
+      {/* HORIZONTAL SCROLL CONTAINER */}
+      <div
+        ref={scrollContainerRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+        className="flex gap-6 overflow-x-auto scroll-smooth py-4 px-2 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {products.map((prod, pIdx) => (
+          <div
+            key={pIdx}
+            onClick={onOpenModal}
+            className="snap-start shrink-0 w-[290px] sm:w-[340px] md:w-[370px] bg-gradient-to-b from-[#14121a] to-[#0c0a11] border border-white/10 hover:border-[#fac400]/40 rounded-3xl p-5 sm:p-6 transition-all duration-300 group hover:-translate-y-1.5 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(250,196,0,0.12)] flex flex-col justify-between relative overflow-hidden cursor-pointer"
+          >
+            {/* TOP IMAGE CONTAINER */}
+            <div>
+              <div className="relative rounded-2xl overflow-hidden mb-5 h-44 sm:h-48 w-full border border-white/10 group-hover:border-[#fac400]/30 transition-colors">
+                <img
+                  src={prod.image}
+                  alt={prod.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14121a] via-black/20 to-transparent pointer-events-none" />
+
+                {/* FLOATING CATEGORY BADGE */}
+                <div className="absolute top-3 left-3 bg-[#080709]/85 backdrop-blur-md border border-[#fac400]/30 text-[#fac400] text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase font-mono shadow-md">
+                  {prod.badge}
+                </div>
+              </div>
+
+              {/* CARD TITLE & DESCRIPTION */}
+              <h3 className="text-xl font-bold text-white tracking-tight mb-2 font-sans group-hover:text-[#fac400] transition-colors leading-snug">
+                {prod.title}
+              </h3>
+
+              <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-5">
+                {prod.desc}
+              </p>
+
+              {/* KEY FEATURES CHECKLIST */}
+              <div className="space-y-2 border-t border-white/10 pt-4">
+                {prod.features.map((feat, fIdx) => (
+                  <div key={fIdx} className="flex items-center gap-2.5 text-xs text-gray-200">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#fac400] shrink-0" />
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
 function CentersOfExcellence({ onOpenModal }: { onOpenModal: () => void }) {
-  const timelineRef = React.useRef<HTMLDivElement>(null);
-
-  // Track scroll progress along the timeline section
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ['start 65%', 'end 75%']
-  });
-
-  // Smooth out line extension animation
-  const smoothLineScale = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 28,
-    restDelta: 0.001
-  });
-
   const solutions = [
     {
       num: '01',
@@ -649,89 +742,60 @@ function CentersOfExcellence({ onOpenModal }: { onOpenModal: () => void }) {
           </p>
         </div>
 
-        {/* ALTRION STAGGERED PROCESS TIMELINE GRID */}
-        <div ref={timelineRef} className="relative">
-          {/* FAINT STATIC BACKGROUND LINE */}
-          <div className="absolute left-1/2 top-12 bottom-12 w-0.5 bg-white/10 hidden lg:block -translate-x-1/2 z-0" />
+        {/* 2 ROWS x 2 CARDS (4 CARDS TOTAL) GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {solutions.map((item) => {
+            const IconComp = item.icon;
 
-          {/* DYNAMIC SCROLL-ANIMATED GLOWING YELLOW CONNECTOR LINE */}
-          <motion.div
-            style={{ scaleY: smoothLineScale }}
-            className="absolute left-1/2 top-12 bottom-12 w-0.5 bg-gradient-to-b from-[#fac400] via-[#ffd633] to-[#fac400] shadow-[0_0_16px_rgba(250,196,0,0.95)] origin-top hidden lg:block -translate-x-1/2 z-0"
-          />
+            return (
+              <div
+                key={item.num}
+                className="bg-gradient-to-b from-[#14121a]/95 to-[#0c0a11]/95 border border-white/10 hover:border-[#fac400]/40 rounded-3xl p-6 sm:p-8 transition-all duration-300 group shadow-xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(250,196,0,0.1)] hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
+              >
+                {/* GIANT STEP NUMBER WATERMARK */}
+                <span className="absolute -bottom-3 -right-2 text-7xl sm:text-8xl font-black text-white/[0.04] group-hover:text-[#fac400]/[0.08] transition-colors font-mono pointer-events-none select-none">
+                  {item.num}
+                </span>
 
-          <div className="space-y-12 lg:space-y-0 relative z-10">
-            {solutions.map((item, index) => {
-              const IconComp = item.icon;
-              const isEven = index % 2 === 0;
-              const threshold = (index + 0.2) / solutions.length;
+                <div>
+                  {/* STANDALONE ENLARGED ICON */}
+                  <div className="text-[#fac400] group-hover:scale-110 transition-transform duration-300 mb-5 inline-block">
+                    <IconComp className="w-10 h-10 sm:w-11 sm:h-11 stroke-[1.8]" />
+                  </div>
 
-              return (
-                <div
-                  key={item.num}
-                  className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center lg:py-6"
-                >
-                  {/* TIMELINE CENTER NODE DOT ANIMATED ON SCROLL */}
-                  <TimelineNodeDot scrollYProgress={scrollYProgress} threshold={threshold} />
+                  {/* TITLE & DESCRIPTION */}
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-snug mb-3 font-sans group-hover:text-[#fac400] transition-colors">
+                    {item.title}
+                  </h3>
 
-                  {/* STAGGERED STEP CARD */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 35 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className={`lg:col-span-6 ${isEven ? 'lg:col-start-1 lg:pr-6' : 'lg:col-start-7 lg:pl-6'
-                      }`}
-                  >
-                    <div className="bg-gradient-to-b from-[#14121a]/95 to-[#0c0a11]/95 border border-white/10 hover:border-[#fac400]/40 rounded-3xl p-6 sm:p-8 transition-all duration-300 group shadow-xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(250,196,0,0.1)] hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between">
+                  <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-6">
+                    {item.desc}
+                  </p>
 
-                      {/* GIANT STEP NUMBER WATERMARK */}
-                      <span className="absolute -bottom-3 -right-2 text-7xl sm:text-8xl font-black text-white/[0.04] group-hover:text-[#fac400]/[0.08] transition-colors font-mono pointer-events-none select-none">
-                        {item.num}
-                      </span>
-
-                      <div>
-                        {/* STANDALONE ENLARGED ICON */}
-                        <div className="text-[#fac400] group-hover:scale-110 transition-transform duration-300 mb-5 inline-block">
-                          <IconComp className="w-10 h-10 sm:w-11 sm:h-11 stroke-[1.8]" />
-                        </div>
-
-                        {/* TITLE & DESCRIPTION */}
-                        <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-snug mb-3 font-sans group-hover:text-[#fac400] transition-colors">
-                          {item.title}
-                        </h3>
-
-                        <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-6">
-                          {item.desc}
-                        </p>
-
-                        {/* CHEVRON CAPABILITIES LIST (ALTRION STYLE) */}
-                        <div className="space-y-2.5 mb-8 border-t border-white/10 pt-5">
-                          {item.capabilities.map((cap, cIdx) => (
-                            <div key={cIdx} className="flex items-start gap-2.5 text-xs text-gray-200">
-                              <span className="text-[#fac400] font-bold font-mono text-xs mt-0.5">&gt;</span>
-                              <span className="font-normal">{cap}</span>
-                            </div>
-                          ))}
-                        </div>
+                  {/* CHEVRON CAPABILITIES LIST (ALTRION STYLE) */}
+                  <div className="space-y-2.5 mb-8 border-t border-white/10 pt-5">
+                    {item.capabilities.map((cap, cIdx) => (
+                      <div key={cIdx} className="flex items-start gap-2.5 text-xs text-gray-200">
+                        <span className="text-[#fac400] font-bold font-mono text-xs mt-0.5">&gt;</span>
+                        <span className="font-normal">{cap}</span>
                       </div>
-
-                      {/* CARD FOOTER CTA ROW */}
-                      <div className="pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
-                        <button
-                          onClick={onOpenModal}
-                          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#fac400] hover:text-white transition-colors cursor-pointer group/btn"
-                        >
-                          <span>{item.cta}</span>
-                        </button>
-                      </div>
-
-                    </div>
-                  </motion.div>
+                    ))}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* CARD FOOTER CTA ROW */}
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
+                  <button
+                    onClick={onOpenModal}
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#fac400] hover:text-white transition-colors cursor-pointer group/btn"
+                  >
+                    <span>{item.cta}</span>
+                  </button>
+                </div>
+
+              </div>
+            );
+          })}
         </div>
 
       </div>
@@ -1440,6 +1504,69 @@ export function App() {
       {/* ================= 4. FEATURED SOLUTIONS & CENTERS OF EXCELLENCE SECTION ================= */}
       <CentersOfExcellence onOpenModal={() => setIsContactModalOpen(true)} />
 
+      {/* ================= 5. READY-TO-USE PRODUCTS SECTION ================= */}
+      <section id="products-section" className="relative py-12 md:py-20 bg-[#080709] w-full border-t border-white/5 overflow-hidden">
+        {/* Ambient Gold Radial Glow Background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#fac400]/5 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="relative z-10 w-full px-6 md:px-12 max-w-[1320px] mx-auto">
+          {/* SECTION HEADER */}
+          <div className="text-center max-w-3xl mx-auto mb-12 relative">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] bg-[#fac400]/10 border border-[#fac400]/25 px-4 py-1.5 rounded-full uppercase font-sans">
+                OUR PRODUCTS
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal tracking-tight text-white leading-[1.12] mb-4 font-sans">
+              Ready-to-Use Products. <br />
+              <span className="text-gradient-primary font-medium">Built for Real Business.</span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-gray-300 font-normal leading-relaxed mb-6">
+              Aamesh has developed a portfolio of independent business applications that can be deployed individually based on your organization's needs. Start with one product. Add more when you're ready.
+            </p>
+
+
+          </div>
+
+          {/* 6 PRODUCT CARDS AUTO-SCROLL CAROUSEL WITH DOTS */}
+          <ProductCardsCarousel onOpenModal={() => setIsContactModalOpen(true)} />
+
+          {/* SUPPORTING MESSAGE & CTAS BOX */}
+          <div className="bg-gradient-to-r from-[#14121a] via-[#1a1624] to-[#14121a] border border-[#fac400]/30 rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl">
+            <div className="max-w-3xl mx-auto space-y-4 relative z-10">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-white font-sans tracking-tight">
+                Choose what you need. <span className="text-[#fac400]">Grow when you're ready.</span>
+              </h3>
+
+              <p className="text-sm sm:text-base text-gray-300 font-normal leading-relaxed">
+                Each product can work independently, while the optional integration platform can connect systems when your organization is ready to create a connected ecosystem.
+              </p>
+
+              <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="btn-primary-glow inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase cursor-pointer group text-[#080709]"
+                >
+                  <span>View All Products</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase cursor-pointer border border-white/20 hover:border-[#fac400] text-white hover:text-[#fac400] bg-white/5 hover:bg-white/10 transition-all duration-300 backdrop-blur-md group"
+                >
+                  <span>Request a Product Demo</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* ================= CUSTOM PRODUCT DEVELOPMENT SECTION (STICKY SIDE-BY-SIDE) ================= */}
       <section id="custom-product-development" className="relative py-10 md:py-16 bg-[#0e0c12] w-full overflow-visible border-t border-white/5">
         <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto overflow-visible">
@@ -1459,7 +1586,7 @@ export function App() {
               </h2>
 
               <p className="text-sm sm:text-base md:text-lg text-gray-300 font-normal leading-relaxed">
-                You don't need to know how to build the technology. You just need to know the problem you want to solve. Aamesh works with you to transform your business idea, workflow, or operational challenge into a working digital solution—from discovery and design to development, deployment, and ongoing support.
+                You don't need to know how to build the technology. You just need to know the problem you want to solve. Aamesh works with you to transform your business idea, workflow, or operational challenge into a working digital solution—from discovery and design to development, deployment, and ongoing support. This positioning is directly supported by the product portfolio's "Your Idea → Our Solution" model.
               </p>
 
 
@@ -1670,26 +1797,23 @@ export function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative group bg-[#131217] border border-white/10 hover:border-white/25 rounded-[28px] p-8 md:p-9 transition-all duration-300 hover:-translate-y-1.5 shadow-2xl overflow-hidden flex flex-col justify-between min-h-[280px]"
+                  className="relative group bg-[#131217] border border-white/10 hover:border-white/25 rounded-[28px] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 shadow-2xl overflow-hidden flex flex-col items-center text-center"
                 >
                   {/* Soft Radial Ambient Gold Glow in Top-Right Corner */}
                   <div className="absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-br from-[#fac400]/15 to-transparent rounded-full blur-3xl group-hover:from-[#fac400]/30 transition-all duration-500 pointer-events-none" />
 
-                  {/* TOP ROW: LINE ICON */}
-                  <div className="mb-10 relative z-10">
-                    {/* Top Left Icon */}
-                    <div className="text-[#fac400] transition-transform duration-300 group-hover:scale-110">
-                      <IconComponent className="w-10 h-10 stroke-[1.75]" />
-                    </div>
+                  {/* CENTERED & ENLARGED ICON */}
+                  <div className="text-[#fac400] transition-transform duration-300 group-hover:scale-110 mb-4 sm:mb-5 relative z-10 flex justify-center items-center">
+                    <IconComponent className="w-13 h-13 sm:w-14 sm:h-14 stroke-[1.6]" />
                   </div>
 
-                  {/* BOTTOM BLOCK: TITLE & DESCRIPTION */}
+                  {/* TITLE & DESCRIPTION */}
                   <div className="relative z-10">
-                    <h3 className="text-2xl font-medium text-white tracking-tight mb-3 font-sans group-hover:text-[#fac400] transition-colors leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-2.5 font-sans group-hover:text-[#fac400] transition-colors leading-snug">
                       {diff.title}
                     </h3>
 
-                    <p className="text-sm sm:text-base text-gray-300/90 font-normal leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-300/90 font-normal leading-relaxed">
                       {diff.desc}
                     </p>
                   </div>
@@ -1839,23 +1963,26 @@ export function App() {
               </ul>
             </div>
 
-            {/* CORE CAPABILITIES */}
+            {/* OUR SERVICES */}
             <div className="lg:col-span-3 space-y-4">
               <h4 className="text-xs font-bold tracking-[0.2em] text-[#fac400] uppercase font-sans">
-                Core Capabilities
+                Our Services
               </h4>
-              <ul className="space-y-2.5">
-                {[
-                  'IT Infrastructure Management',
-                  'Cloud & Digital Transformation',
-                  'AI, ML & Generative AI',
-                  'ERP & SAP Consulting',
-                  'Product Engineering & DevOps',
-                  'Cybersecurity & Risk Control'
-                ].map((service, idx) => (
-                  <li key={idx} className="text-xs sm:text-sm text-gray-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#fac400]/60 shrink-0" />
-                    <span>{service}</span>
+              <ul className="space-y-2">
+                {servicesList.map((service) => (
+                  <li key={service.id}>
+                    <button
+                      onClick={() => {
+                        const el = document.getElementById('services-section');
+                        if (el) {
+                          el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="text-xs sm:text-sm text-gray-400 hover:text-[#fac400] transition-colors cursor-pointer flex items-center gap-2 text-left"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#fac400]/60 shrink-0" />
+                      <span>{service.title}</span>
+                    </button>
                   </li>
                 ))}
               </ul>
