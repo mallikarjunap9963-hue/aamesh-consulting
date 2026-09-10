@@ -26,7 +26,7 @@ export const productsList: ProductItem[] = [
     badge: 'GEN AI & OCR',
     title: 'AI Assistant & Document Intelligence',
     desc: 'Analyze business documents, extract data automatically, and power RAG knowledge search.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=80',
+    image: '/services/AI, Machine Learning & Gen AI.webp',
     features: ['RAG Knowledge Search Engine', 'Automated PDF/OCR Extraction', 'Custom LLM Agent Integration']
   },
   {

@@ -3,12 +3,17 @@ import { CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 interface AboutSectionProps {
   prefersReducedMotion: boolean;
+  onNavigateToServices?: () => void;
 }
 
-export function AboutSection({ prefersReducedMotion }: AboutSectionProps) {
+export function AboutSection({ prefersReducedMotion, onNavigateToServices }: AboutSectionProps) {
   const scrollToServices = () => {
-    const el = document.getElementById('services-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (onNavigateToServices) {
+      onNavigateToServices();
+    } else {
+      const el = document.getElementById('services-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -37,7 +42,7 @@ export function AboutSection({ prefersReducedMotion }: AboutSectionProps) {
           <div>
             {/* Label */}
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] bg-[#fac400]/10 border border-[#fac400]/25 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
                 ABOUT US
               </span>
             </div>

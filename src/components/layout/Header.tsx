@@ -1,101 +1,311 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 import type { NavTab } from '../../types';
+import { servicesList } from '../../data/servicesData';
 
 interface HeaderProps {
   activeTab: NavTab;
   setActiveTab: (tab: NavTab) => void;
   onOpenContactModal: () => void;
+  onNavigateToServices?: (serviceId?: string) => void;
+  onNavigateHome?: (sectionId?: string) => void;
+  onNavigateHome2?: () => void;
+  currentPage?: 'HOME' | 'HOME2' | 'SERVICES';
+  isLightTheme?: boolean;
 }
 
-export function Header({ activeTab, setActiveTab, onOpenContactModal }: HeaderProps) {
+export function Header({
+  activeTab,
+  setActiveTab,
+  onOpenContactModal,
+  onNavigateToServices,
+  onNavigateHome,
+  onNavigateHome2,
+  currentPage = 'HOME',
+  isLightTheme = true
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (tab: NavTab) => {
     setActiveTab(tab);
     setMobileMenuOpen(false);
+    setServicesDropdownOpen(false);
 
-    if (tab === 'CONTACT US') {
-      const el = document.getElementById('contact-us');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      else onOpenContactModal();
-    } else if (tab === 'ABOUT US') {
-      const el = document.getElementById('about');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else if (tab === 'SERVICES') {
-      const el = document.getElementById('services-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else if (tab === 'TECHNOLOGY') {
-      const el = document.getElementById('technology');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else if (tab === 'PRODUCTS') {
-      const el = document.getElementById('cards-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (tab === 'SERVICES') {
+      if (onNavigateToServices) {
+        onNavigateToServices('it-services');
+      } else {
+        const el = document.getElementById('services-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
     } else if (tab === 'HOME') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (onNavigateHome) {
+        onNavigateHome();
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else if (tab === 'HOME 2') {
+      if (onNavigateHome2) {
+        onNavigateHome2();
+      } else if (onNavigateHome) {
+        onNavigateHome();
+      }
+    } else if (tab === 'ABOUT US') {
+      if (currentPage !== 'HOME' && currentPage !== 'HOME2' && onNavigateHome) {
+        onNavigateHome('about');
+      } else {
+        const el = document.getElementById('about');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (tab === 'TECHNOLOGY') {
+      if (currentPage !== 'HOME' && currentPage !== 'HOME2' && onNavigateHome) {
+        onNavigateHome('technology');
+      } else {
+        const el = document.getElementById('technology');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (tab === 'PRODUCTS') {
+      if (currentPage !== 'HOME' && currentPage !== 'HOME2' && onNavigateHome) {
+        onNavigateHome('cards-section');
+      } else {
+        const el = document.getElementById('cards-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (tab === 'CONTACT US') {
+      if (currentPage !== 'HOME' && currentPage !== 'HOME2' && onNavigateHome) {
+        onNavigateHome('contact-us');
+      } else {
+        const el = document.getElementById('contact-us');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        else onOpenContactModal();
+      }
     }
   };
 
   const navTabs: NavTab[] = ['HOME', 'ABOUT US', 'SERVICES', 'TECHNOLOGY', 'PRODUCTS', 'CONTACT US'];
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-40 w-full bg-transparent transition-all duration-300">
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 h-20 md:h-24 flex items-center justify-between">
+    <header className={`w-full z-50 sticky top-0 transition-all duration-300 ${isScrolled
+        ? isLightTheme
+          ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-md py-3 md:py-3.5'
+          : 'bg-[#080709]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-3 md:py-3.5'
+        : isLightTheme
+          ? 'bg-transparent border-none shadow-none py-3 md:py-4'
+          : 'bg-[#080709]/85 backdrop-blur-lg border-none shadow-none py-3 md:py-3.5'
+      }`}>
+
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* BRAND LOGO */}
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        <button
+          onClick={() => {
+            if (onNavigateHome) onNavigateHome();
+            else window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-3 group cursor-pointer bg-transparent border-none p-0"
         >
           <img
-            src="/ACS-logo.webp"
+            src={isLightTheme ? "/dark logo.png" : "/new white logo.png"}
             alt="Aamesh Consulting Services Logo"
-            className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-12 sm:h-16 md:h-20 max-h-[75px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
-        </a>
+        </button>
 
-        {/* DESKTOP NAV LINKS */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
-          {navTabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => handleNavClick(tab)}
-              className={`text-xs tracking-widest font-semibold transition-all duration-200 uppercase relative py-1 ${
-                activeTab === tab ? 'text-[#fac400]' : 'text-gray-400 hover:text-white'
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        {/* DESKTOP NAV LINKS (SUSTHO FLOATING WHITE CAPSULE) */}
+        <nav className={isLightTheme
+          ? "hidden md:flex items-center gap-1 sm:gap-2 px-5 py-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-white/90 shadow-[0_4px_25px_rgba(0,0,0,0.06)]"
+          : "hidden md:flex items-center gap-1 sm:gap-1.5 lg:gap-2"
+        }>
+          {navTabs.map((tab) => {
+            if (tab === 'SERVICES') {
+              return (
+                <div
+                  key={tab}
+                  className="relative group/dropdown"
+                  onMouseEnter={() => setServicesDropdownOpen(true)}
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => handleNavClick('SERVICES')}
+                    className={`text-[13px] tracking-wider font-semibold transition-all duration-200 uppercase py-1.5 px-3.5 rounded-full cursor-pointer flex items-center gap-1.5 ${isLightTheme
+                      ? (activeTab === 'SERVICES' ? 'text-[#B77805] font-bold' : 'text-slate-700 hover:text-[#B77805]')
+                      : (activeTab === 'SERVICES' ? 'text-[#FFD54A] font-bold' : 'text-gray-300 hover:text-white')
+                      }`}
+                  >
+                    <span>SERVICES</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  {/* FLOATING SERVICES DROPDOWN MENU */}
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[300px] sm:w-[320px] transition-all duration-200 z-50 ${servicesDropdownOpen
+                      ? 'opacity-100 visible translate-y-0'
+                      : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+                      }`}
+                  >
+                    <div className={`${isLightTheme
+                      ? 'bg-white border border-gray-200 shadow-2xl'
+                      : 'bg-[#001F4D]/95 backdrop-blur-xl border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.8)]'
+                      } rounded-2xl p-2 space-y-1`}>
+                      {servicesList.map((service) => (
+                        <button
+                          key={service.id}
+                          onClick={() => {
+                            setServicesDropdownOpen(false);
+                            setActiveTab('SERVICES');
+                            if (onNavigateToServices) onNavigateToServices(service.id);
+                          }}
+                          className={`w-full text-left py-2 px-3 rounded-xl transition-all duration-200 block group/item cursor-pointer border border-transparent ${isLightTheme
+                            ? 'text-[#012854] hover:text-[#B77805]'
+                            : 'text-gray-200 hover:text-[#FFD54A]'
+                            }`}
+                        >
+                          <span className={`text-xs sm:text-[13px] font-semibold transition-colors block ${isLightTheme ? 'group-hover/item:text-[#B77805]' : 'group-hover/item:text-[#FFD54A]'
+                            }`}>
+                            {service.title}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <button
+                key={tab}
+                onClick={() => handleNavClick(tab)}
+                className={`text-[13px] tracking-wider font-semibold transition-all duration-200 uppercase py-1.5 px-3.5 rounded-full cursor-pointer ${isLightTheme
+                  ? (activeTab === tab ? 'text-[#B77805] font-bold' : 'text-slate-700 hover:text-[#B77805]')
+                  : (activeTab === tab ? 'text-[#FFD54A] font-bold' : 'text-gray-300 hover:text-white')
+                  }`}
+              >
+                <span>{tab}</span>
+              </button>
+            );
+          })}
         </nav>
+
+        {/* RIGHT TOP CTA BUTTON (BRAND GRADIENT BUTTON) */}
+        <div className="hidden md:flex items-center">
+          <button
+            onClick={onOpenContactModal}
+            className={isLightTheme
+              ? "bg-gradient-to-r from-[#012854] via-[#012F62] to-[#B77805] hover:from-[#012F62] hover:via-[#B77805] hover:to-[#CE9116] text-white font-bold text-xs tracking-wider uppercase px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group"
+              : "btn-primary-glow inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase text-[#001F4D] cursor-pointer group"
+            }
+          >
+            <span>Get Started</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </div>
 
         {/* MOBILE MENU TOGGLE */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-gray-300 hover:text-white p-2"
+          className={`md:hidden p-2 cursor-pointer ${isLightTheme ? 'text-slate-800' : 'text-gray-300 hover:text-white'}`}
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6 text-[#fac400]" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? (
+            <X className={`w-6 h-6 ${isLightTheme ? 'text-[#B8860B]' : 'text-[#FFD54A]'}`} />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
       </div>
 
       {/* MOBILE DROPDOWN */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0e0c12]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 flex flex-col gap-4">
-          {navTabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => handleNavClick(tab)}
-              className={`text-left text-sm font-semibold tracking-wider py-2 border-b border-white/5 uppercase ${
-                activeTab === tab ? 'text-[#fac400]' : 'text-gray-300'
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        <div className={`md:hidden border-b px-6 py-6 flex flex-col gap-3 ${isLightTheme
+          ? 'bg-white border-gray-200 text-slate-800'
+          : 'bg-[#001F4D]/95 backdrop-blur-xl border-white/10 text-white'
+          }`}>
+          {navTabs.map((tab) => {
+            if (tab === 'SERVICES') {
+              return (
+                <div key={tab} className="border-b border-gray-200/20 py-1">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => handleNavClick('SERVICES')}
+                      className={`text-left text-sm font-semibold tracking-wider py-1.5 uppercase cursor-pointer ${activeTab === 'SERVICES' ? (isLightTheme ? 'text-[#B8860B]' : 'text-[#FFD54A]') : ''
+                        }`}
+                    >
+                      SERVICES
+                    </button>
+                    <button
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className="p-1 text-gray-400"
+                      aria-label="Toggle services list"
+                    >
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+
+                  {mobileServicesOpen && (
+                    <div className="pl-3 py-2 space-y-2">
+                      {servicesList.map((service) => (
+                        <button
+                          key={service.id}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setActiveTab('SERVICES');
+                            if (onNavigateToServices) onNavigateToServices(service.id);
+                          }}
+                          className="w-full text-left py-1 text-xs font-medium block"
+                        >
+                          {service.title}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <button
+                key={tab}
+                onClick={() => handleNavClick(tab)}
+                className={`text-left text-sm font-semibold tracking-wider py-2 border-b border-gray-200/20 uppercase cursor-pointer ${activeTab === tab ? (isLightTheme ? 'text-[#B8860B]' : 'text-[#FFD54A]') : ''
+                  }`}
+              >
+                {tab}
+              </button>
+            );
+          })}
+
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenContactModal();
+            }}
+            className={isLightTheme
+              ? "w-full mt-2 py-3 rounded-xl font-bold text-xs tracking-wider uppercase bg-[#D4A017] text-white flex items-center justify-center gap-2"
+              : "btn-primary-glow w-full mt-2 py-3 rounded-xl font-bold text-xs tracking-wider uppercase text-[#001F4D] flex items-center justify-center gap-2"
+            }
+          >
+            <span>Let's Connect</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       )}
     </header>

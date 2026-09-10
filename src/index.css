@@ -5,7 +5,14 @@
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
     --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
     --primary: #fac400;
+  }
+
+  .font-serif-italic {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
   }
 
   body {
@@ -40,7 +47,7 @@
 /* Hero background image */
 .hero-bg-container {
   position: relative;
-  background-image: url('/hero-bg.png');
+  background-image: url('/hero bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -129,6 +136,13 @@
   display: inline-block;
 }
 
+.text-gradient-primary-light {
+  background: linear-gradient(135deg, #92400E 0%, #B77805 40%, #D97706 80%, #CA8A04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 /* Stacking Service Cards Utility */
 .stacked-card {
   position: sticky;
@@ -156,6 +170,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -165,6 +180,7 @@
   0% {
     transform: translateX(-50%);
   }
+
   100% {
     transform: translateX(0%);
   }
@@ -181,4 +197,25 @@
 .animate-marquee-left:hover,
 .animate-marquee-right:hover {
   animation-play-state: paused;
+}
+
+/* 3D Perspective Card Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }

@@ -1,10 +1,10 @@
-import { Cpu, Network, BrainCircuit, ShieldCheck } from 'lucide-react';
+import { Cpu, Network, BrainCircuit, ShieldCheck, ArrowRight } from 'lucide-react';
 
-interface CentersOfExcellenceProps {
+interface CentersOfExcellenceLightProps {
   onOpenModal: () => void;
 }
 
-export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
+export function CentersOfExcellenceLight({ onOpenModal }: CentersOfExcellenceLightProps) {
   const solutions = [
     {
       num: '01',
@@ -17,8 +17,7 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
         'SRE & Continuous DevOps Pipeline'
       ],
       cta: 'Explore More',
-      icon: Cpu,
-      accentGlow: 'from-[#fac400]/20 to-[#fac400]/5'
+      icon: Cpu
     },
     {
       num: '02',
@@ -31,8 +30,7 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
         'Omnichannel Integration & API Fabric'
       ],
       cta: 'Explore More',
-      icon: Network,
-      accentGlow: 'from-[#3B82F6]/20 to-[#3B82F6]/5'
+      icon: Network
     },
     {
       num: '03',
@@ -45,8 +43,7 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
         'Autonomous Business AI Workflows'
       ],
       cta: 'Explore More',
-      icon: BrainCircuit,
-      accentGlow: 'from-[#10B981]/20 to-[#10B981]/5'
+      icon: BrainCircuit
     },
     {
       num: '04',
@@ -59,28 +56,27 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
         'End-to-End Product Engineering'
       ],
       cta: 'Explore More',
-      icon: ShieldCheck,
-      accentGlow: 'from-[#8B5CF6]/20 to-[#8B5CF6]/5'
+      icon: ShieldCheck
     }
   ];
 
   return (
-    <section id="solutions" className="relative py-8 md:py-12 bg-[#0e0c12] border-t border-white/5 overflow-hidden">
+    <section id="solutions" className="relative py-8 md:py-12 bg-white border-t border-slate-200/80 overflow-hidden">
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1320px] mx-auto">
         {/* SECTION HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-16 relative">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
+        <div className="text-center max-w-3xl mx-auto mb-14 relative">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
               SOLUTIONS &amp; CENTERS OF EXCELLENCE
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal tracking-tight text-white leading-[1.12] mb-4 font-sans">
+          <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-4 font-sans">
             A Simple Process for <br />
-            <span className="text-gradient-primary font-medium">Enterprise Technology Solutions</span>
+            <span className="text-gradient-primary-light font-bold">Enterprise Technology Solutions</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-gray-300 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-[#3D3E42] font-normal leading-relaxed">
             We combine strategic consulting, enterprise architecture, and hands-on engineering to design tailored solutions that turn operational challenges into competitive advantages.
           </p>
         </div>
@@ -93,33 +89,33 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
             return (
               <div
                 key={item.num}
-                className="bg-gradient-to-b from-[#14121a]/95 to-[#0c0a11]/95 border border-white/10 hover:border-[#fac400]/40 rounded-3xl p-6 sm:p-8 transition-all duration-300 group shadow-[0_18px_45px_rgba(0,0,0,0.7)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_25px_rgba(250,196,0,0.2)] hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
+                className="bg-white border border-slate-200/90 hover:border-amber-500/40 rounded-3xl p-6 sm:p-8 transition-all duration-300 group shadow-[0_16px_40px_-10px_rgba(1,40,84,0.16)] hover:shadow-[0_24px_55px_-10px_rgba(183,120,5,0.28)] hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
               >
                 {/* STEP NUMBER WATERMARK */}
-                <span className="absolute bottom-4 right-5 text-3xl sm:text-4xl font-extrabold text-[#fac400]/25 group-hover:text-[#fac400]/50 transition-colors font-mono pointer-events-none select-none">
+                <span className="absolute bottom-4 right-5 text-3xl sm:text-4xl font-extrabold text-[#B77805]/35 group-hover:text-[#B77805]/70 transition-colors font-mono pointer-events-none select-none">
                   {item.num}
                 </span>
 
                 <div>
                   {/* ENLARGED ICON */}
-                  <div className="text-[#fac400] group-hover:scale-110 transition-transform duration-300 mb-5 inline-block">
-                    <IconComp className="w-10 h-10 sm:w-11 sm:h-11 stroke-[1.8]" />
+                  <div className="w-12 h-12 rounded-2xl bg-[#012854] text-[#B77805] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <IconComp className="w-6 h-6" />
                   </div>
 
                   {/* TITLE & DESCRIPTION */}
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight leading-snug mb-3 font-sans group-hover:text-[#fac400] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#012854] tracking-tight leading-snug mb-3 font-sans group-hover:text-[#B77805] transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#3D3E42] font-normal leading-relaxed mb-6">
                     {item.desc}
                   </p>
 
                   {/* CAPABILITIES LIST */}
-                  <div className="space-y-2.5 mb-8 border-t border-white/10 pt-5">
+                  <div className="space-y-2.5 mb-8 border-t border-slate-200/80 pt-5">
                     {item.capabilities.map((cap, cIdx) => (
-                      <div key={cIdx} className="flex items-start gap-2.5 text-xs text-gray-200">
-                        <span className="text-[#fac400] font-bold font-mono text-xs mt-0.5">&gt;</span>
+                      <div key={cIdx} className="flex items-start gap-2.5 text-xs text-[#012854]">
+                        <span className="text-[#B77805] font-bold font-mono text-xs mt-0.5">&gt;</span>
                         <span className="font-normal">{cap}</span>
                       </div>
                     ))}
@@ -127,12 +123,13 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
                 </div>
 
                 {/* CARD FOOTER CTA ROW */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
+                <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between relative z-10">
                   <button
                     onClick={onOpenModal}
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#fac400] hover:text-white transition-colors cursor-pointer group/btn"
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#012854] via-[#012F62] to-[#B77805] hover:from-[#012F62] hover:via-[#B77805] hover:to-[#CE9116] text-white shadow-sm hover:shadow-md hover:scale-105 transition-all cursor-pointer group/btn"
                   >
                     <span>{item.cta}</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </button>
                 </div>
               </div>

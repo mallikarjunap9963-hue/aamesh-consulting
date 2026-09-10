@@ -1,12 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
 import { CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import { productsList } from '../../data/productsData';
+import { productsList } from '../../../data/productsData';
 
-interface ProductsSectionProps {
+interface ProductsSectionLightProps {
   onOpenModal: () => void;
 }
 
-function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
+function ProductCardsCarouselLight({ onOpenModal }: { onOpenModal: () => void }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -79,19 +79,19 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
               <div
                 key={pIdx}
                 onClick={onOpenModal}
-                className="bg-gradient-to-b from-[#14121a] to-[#0c0a11] border border-white/10 hover:border-[#fac400]/40 rounded-3xl transition-all duration-300 group hover:-translate-y-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.7)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_25px_rgba(250,196,0,0.2)] flex flex-col justify-between relative overflow-hidden cursor-pointer"
+                className="bg-white border border-slate-200/90 hover:border-amber-500/40 rounded-3xl transition-all duration-300 group hover:-translate-y-1.5 shadow-[0_16px_40px_-10px_rgba(1,40,84,0.16)] hover:shadow-[0_24px_55px_-10px_rgba(183,120,5,0.28)] flex flex-col justify-between relative overflow-hidden cursor-pointer"
               >
                 {/* TOP IMAGE CONTAINER */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden border-b border-white/10 group-hover:border-[#fac400]/30 transition-colors shrink-0">
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden border-b border-slate-200/80 group-hover:border-amber-500/30 transition-colors shrink-0">
                   <img
                     src={prod.image}
                     alt={prod.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#14121a] via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none" />
 
                   {/* FLOATING CATEGORY BADGE */}
-                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 bg-[#080709]/85 backdrop-blur-md border border-[#fac400]/30 text-[#fac400] text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase font-mono shadow-md z-10">
+                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 bg-[#012854]/90 backdrop-blur-md border border-amber-500/30 text-[#CE9116] text-[10px] font-bold tracking-wider px-3 py-1 rounded-full uppercase font-mono shadow-md z-10">
                     {prod.badge}
                   </div>
                 </div>
@@ -99,18 +99,18 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
                 {/* CARD CONTENT AREA */}
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-[#fac400] tracking-tight mb-2 font-sans leading-snug">
+                    <h3 className="text-xl font-bold text-[#012854] tracking-tight mb-2 font-sans leading-snug group-hover:text-[#B77805] transition-colors">
                       {prod.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed mb-4">
+                    <p className="text-xs sm:text-sm text-[#3D3E42] font-normal leading-relaxed mb-4">
                       {prod.desc}
                     </p>
 
                     <div className="space-y-2.5 pt-1">
                       {prod.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-center gap-2.5 text-xs text-gray-200">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#fac400] shrink-0" />
+                        <div key={fIdx} className="flex items-center gap-2.5 text-xs text-[#012854]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#B77805] shrink-0" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -118,8 +118,8 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
                   </div>
 
                   {/* CARD FOOTER CTA */}
-                  <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#fac400] group-hover:translate-x-1 transition-transform">
+                  <div className="pt-4 mt-4 border-t border-slate-200/80 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#B77805] group-hover:translate-x-1 transition-transform">
                       <span>Explore More</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </span>
@@ -136,11 +136,10 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
         <button
           onClick={() => scrollToSlide(0)}
           aria-label="Previous Page"
-          className={`p-2 rounded-full border transition-all cursor-pointer ${
-            activeSlide === 0
-              ? 'border-[#fac400]/40 text-[#fac400] bg-[#fac400]/10'
-              : 'border-white/20 text-gray-400 hover:text-white'
-          }`}
+          className={`p-2 rounded-full border transition-all cursor-pointer ${activeSlide === 0
+            ? 'border-amber-500/40 text-[#B77805] bg-amber-500/10'
+            : 'border-slate-300 text-slate-400 hover:text-[#012854]'
+            }`}
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
@@ -151,11 +150,10 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
               key={idx}
               onClick={() => scrollToSlide(idx)}
               aria-label={`Go to product slide ${idx + 1}`}
-              className={`transition-all duration-300 cursor-pointer ${
-                activeSlide === idx
-                  ? 'w-8 h-2.5 bg-[#fac400] rounded-full shadow-[0_0_10px_rgba(250,196,0,0.5)]'
-                  : 'w-2.5 h-2.5 bg-white/20 hover:bg-white/50 rounded-full'
-              }`}
+              className={`transition-all duration-300 cursor-pointer ${activeSlide === idx
+                ? 'w-8 h-2.5 bg-[#B77805] rounded-full shadow-md'
+                : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400 rounded-full'
+                }`}
             />
           ))}
         </div>
@@ -163,11 +161,10 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
         <button
           onClick={() => scrollToSlide(1)}
           aria-label="Next Page"
-          className={`p-2 rounded-full border transition-all cursor-pointer ${
-            activeSlide === 1
-              ? 'border-[#fac400]/40 text-[#fac400] bg-[#fac400]/10'
-              : 'border-white/20 text-gray-400 hover:text-white'
-          }`}
+          className={`p-2 rounded-full border transition-all cursor-pointer ${activeSlide === 1
+            ? 'border-amber-500/40 text-[#B77805] bg-amber-500/10'
+            : 'border-slate-300 text-slate-400 hover:text-[#012854]'
+            }`}
         >
           <ChevronRight className="w-4 h-4" />
         </button>
@@ -176,33 +173,30 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
   );
 }
 
-export function ProductsSection({ onOpenModal }: ProductsSectionProps) {
+export function ProductsSectionLight({ onOpenModal }: ProductsSectionLightProps) {
   return (
-    <section id="products-section" className="relative py-8 md:py-12 bg-[#080709] w-full border-t border-white/5 overflow-hidden">
-      {/* Ambient Gold Radial Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#fac400]/5 rounded-full blur-[150px] pointer-events-none" />
-
+    <section id="products-section" className="relative py-8 md:py-12 bg-white w-full border-t border-slate-200/80 overflow-hidden">
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1320px] mx-auto">
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-12 relative">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
               OUR PRODUCTS
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal tracking-tight text-white leading-[1.12] mb-4 font-sans">
+          <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-4 font-sans">
             Ready-to-Use Products. <br />
-            <span className="text-gradient-primary font-medium">Built for Real Business.</span>
+            <span className="text-gradient-primary-light font-bold">Built for Real Business.</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-gray-300 font-normal leading-relaxed mb-6">
+          <p className="text-sm sm:text-base text-[#3D3E42] font-normal leading-relaxed mb-6">
             Aamesh has developed a portfolio of independent business applications that can be deployed individually based on your organization's needs. Start with one product. Add more when you're ready.
           </p>
         </div>
 
         {/* 6 PRODUCT CARDS AUTO-SCROLL CAROUSEL */}
-        <ProductCardsCarousel onOpenModal={onOpenModal} />
+        <ProductCardsCarouselLight onOpenModal={onOpenModal} />
       </div>
     </section>
   );

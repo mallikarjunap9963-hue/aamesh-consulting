@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Lightbulb, Layers, Rocket, ShieldCheck, ArrowRight } from 'lucide-react';
 import { ideaToSolutionCards } from '../../data/customDevData';
 import type { IdeaToSolutionStep } from '../../types';
 
@@ -29,6 +30,21 @@ function IdeaToSolutionStackedCard({
 
   const isLast = index === totalCards - 1;
 
+  const renderIcon = (num: string) => {
+    switch (num) {
+      case '01':
+        return <Lightbulb className="w-6 h-6 text-[#fac400]" />;
+      case '02':
+        return <Layers className="w-6 h-6 text-[#fac400]" />;
+      case '03':
+        return <Rocket className="w-6 h-6 text-[#fac400]" />;
+      case '04':
+        return <ShieldCheck className="w-6 h-6 text-[#fac400]" />;
+      default:
+        return <span className="font-extrabold text-[#fac400] text-base">{num}</span>;
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -47,16 +63,22 @@ function IdeaToSolutionStackedCard({
         <div className="absolute -top-16 -left-16 w-40 h-40 bg-[#fac400]/5 rounded-full blur-2xl group-hover:bg-[#fac400]/10 transition-colors pointer-events-none" />
 
         <div>
-          <div className="relative pt-2 mb-6">
-            <div className="absolute -top-7 left-6 w-px h-6 bg-gradient-to-b from-transparent via-[#fac400]/40 to-transparent" />
-            <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#162238] to-[#0a111f] border border-[#fac400]/40 shadow-[0_0_15px_rgba(250,196,0,0.2)] flex items-center justify-center text-[#fac400] text-sm font-bold tracking-wider font-sans group-hover:scale-105 transition-transform">
-              {proc.num}
+          {/* TOP BAR: ICON BOX ON LEFT, PHASE BADGE ON RIGHT */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="w-12 h-12 rounded-xl bg-white/5 border border-[#fac400]/30 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0">
+              {renderIcon(proc.num)}
+            </div>
+
+            <div className="bg-[#fac400]/10 text-[#fac400] border border-[#fac400]/30 font-bold text-xs sm:text-sm px-4 py-1.5 rounded-lg shadow-sm font-sans tracking-wide">
+              Phase {proc.num}
             </div>
           </div>
 
-          <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-4 font-sans">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gradient-primary tracking-tight mb-3 font-sans">
             {proc.title}
           </h3>
+
+          <div className="w-full h-px bg-white/10 my-4" />
 
           <p className="text-sm sm:text-base text-gray-300/90 font-normal leading-relaxed">
             {proc.desc}
@@ -75,7 +97,7 @@ export function CustomDevSection({ onOpenModal }: CustomDevSectionProps) {
           {/* LEFT COLUMN: STICKY TEXT & CONTENT */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6 pt-4">
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] bg-[#fac400]/10 border border-[#fac400]/25 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
                 FROM IDEA TO SOLUTION
               </span>
             </div>
@@ -100,7 +122,7 @@ export function CustomDevSection({ onOpenModal }: CustomDevSectionProps) {
                 </span>
                 <span className="text-[#fac400] font-bold hidden sm:inline">→</span>
                 <span className="text-[#fac400] font-bold sm:hidden">↓</span>
-                <span className="bg-[#fac400]/10 border border-[#fac400]/30 px-3 py-1.5 rounded-xl text-[#fac400] shadow-sm text-center w-full sm:w-auto">
+                <span className="border border-[#fac400]/30 px-3 py-1.5 rounded-xl text-[#fac400] shadow-sm text-center w-full sm:w-auto">
                   Our Technology Expertise
                 </span>
                 <span className="text-[#fac400] font-bold hidden sm:inline">→</span>
@@ -115,9 +137,10 @@ export function CustomDevSection({ onOpenModal }: CustomDevSectionProps) {
             <div className="pt-4">
               <button
                 onClick={onOpenModal}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase bg-gradient-to-r from-[#fac400] to-[#f5b800] text-[#080709] hover:brightness-110 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-xs sm:text-sm tracking-wider uppercase bg-gradient-to-r from-[#fac400] to-[#f5b800] text-[#080709] hover:brightness-110 transition-all duration-300 shadow-xl cursor-pointer hover:scale-105"
               >
-                <span>Let's Build Your Solution →</span>
+                <span>Let's Build Your Solution</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>

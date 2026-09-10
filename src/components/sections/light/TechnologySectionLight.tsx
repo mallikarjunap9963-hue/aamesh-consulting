@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import {
   CloudCog,
   Database,
@@ -27,32 +26,32 @@ import {
   RefreshCcw,
   Activity
 } from 'lucide-react';
-import { MarqueeRow } from '../common/MarqueeRow';
+import { MarqueeRow } from '../../common/MarqueeRow';
 
-interface TechnologySectionProps {
-  prefersReducedMotion: boolean;
+interface TechnologySectionLightProps {
+  prefersReducedMotion?: boolean;
 }
 
-export function TechnologySection({ prefersReducedMotion }: TechnologySectionProps) {
+export function TechnologySectionLight({ }: TechnologySectionLightProps) {
   return (
     <>
       {/* ================= TECHNOLOGY EXPERTISE SECTION ================= */}
-      <section id="technology" className="relative py-8 md:py-12 bg-[#080709] w-full overflow-hidden border-t border-white/5">
+      <section id="technology" className="relative py-8 md:py-12 bg-white w-full overflow-hidden border-t border-slate-200/80">
         <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
           {/* SECTION HEADER */}
           <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
                 TECHNOLOGY
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal tracking-tight text-white leading-[1.12] mb-6 font-sans">
+            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-6 font-sans">
               Technology Expertise for the <br />
-              <span className="text-gradient-primary font-medium">Modern Enterprise</span>
+              <span className="text-gradient-primary-light font-bold">Modern Enterprise</span>
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#3D3E42] font-normal leading-relaxed">
               Our teams bring expertise across enterprise platforms, modern application development, cloud, AI, automation, data, and DevOps.
             </p>
           </div>
@@ -61,6 +60,7 @@ export function TechnologySection({ prefersReducedMotion }: TechnologySectionPro
           <div className="mt-12 space-y-3">
             {/* Row 1: Right to Left */}
             <MarqueeRow
+              isLightTheme={true}
               direction="left"
               speedSeconds={28}
               items={[
@@ -77,6 +77,7 @@ export function TechnologySection({ prefersReducedMotion }: TechnologySectionPro
 
             {/* Row 2: Left to Right */}
             <MarqueeRow
+              isLightTheme={true}
               direction="right"
               speedSeconds={32}
               items={[
@@ -96,6 +97,7 @@ export function TechnologySection({ prefersReducedMotion }: TechnologySectionPro
 
             {/* Row 3: Right to Left */}
             <MarqueeRow
+              isLightTheme={true}
               direction="left"
               speedSeconds={26}
               items={[
@@ -116,25 +118,22 @@ export function TechnologySection({ prefersReducedMotion }: TechnologySectionPro
       </section>
 
       {/* ================= 8. WHY AAMESH SECTION ================= */}
-      <section id="why-aamesh" className="relative py-8 md:py-12 bg-[#080709] w-full overflow-hidden border-t border-white/5">
-        {/* Soft Ambient Radial Gold Flare */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#fac400]/5 rounded-full blur-[160px] pointer-events-none" />
-
+      <section id="why-aamesh" className="relative py-14 md:py-20 bg-white w-full overflow-hidden border-t border-slate-200/80">
         <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
           {/* SECTION HEADER */}
-          <div className="max-w-3xl mx-auto text-center mb-16 relative">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
+          <div className="max-w-3xl mx-auto text-center mb-14 relative">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
                 WHY AAMESH
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-[48px] font-normal tracking-tight text-white leading-[1.12] mb-6 font-sans">
+            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-6 font-sans">
               More Than a Technology Vendor. <br />
-              <span className="text-gradient-primary font-medium">A Partner for What's Next.</span>
+              <span className="text-gradient-primary-light font-bold">A Partner for What's Next.</span>
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#3D3E42] font-normal leading-relaxed">
               We bring together consulting, engineering, products, and technology expertise to help businesses move from ideas and challenges to working solutions.
             </p>
           </div>
@@ -143,73 +142,67 @@ export function TechnologySection({ prefersReducedMotion }: TechnologySectionPro
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                num: '01',
+                id: 'tech-consulting',
                 title: 'Technology + Consulting',
                 desc: 'We combine strategic thinking with hands-on technology execution.',
                 icon: Cpu
               },
               {
-                num: '02',
+                id: 'build-buy',
                 title: 'Build + Buy',
                 desc: 'Choose from ready-to-use products or work with us to build a solution specifically for your business.',
                 icon: Boxes
               },
               {
-                num: '03',
+                id: 'business-first',
                 title: 'Business-First Thinking',
                 desc: 'We focus on solving the underlying business problem—not simply implementing technology.',
                 icon: BrainCircuit
               },
               {
-                num: '04',
+                id: 'end-to-end',
                 title: 'End-to-End Delivery',
                 desc: 'From discovery and architecture to development, deployment, and support.',
                 icon: Workflow
               },
               {
-                num: '05',
+                id: 'flexible-scalable',
                 title: 'Flexible & Scalable',
                 desc: 'Start with a focused requirement and expand as your business and technology needs evolve.',
                 icon: RefreshCcw
               },
               {
-                num: '06',
+                id: 'we-build-support',
                 title: 'We Build What We Support',
                 desc: 'Our product portfolio emphasizes that ACS builds, owns, and supports its own products, giving customers direct access to the team behind the technology.',
                 icon: ShieldCheck
               }
-            ].map((diff, idx) => {
+            ].map((diff) => {
               const IconComponent = diff.icon;
               return (
-                <motion.div
-                  key={diff.num}
-                  initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative bg-[#121016]/90 border border-white/10 rounded-3xl p-7 flex flex-col justify-between transition-all duration-500 group shadow-xl hover:shadow-2xl hover:-translate-y-1.5 overflow-hidden cursor-pointer"
+                <div
+                  key={diff.id}
+                  className="relative bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-500 group shadow-[0_16px_40px_-10px_rgba(1,40,84,0.16)] hover:shadow-[0_24px_55px_-10px_rgba(183,120,5,0.28)] hover:-translate-y-1.5 min-h-[260px] overflow-hidden cursor-pointer"
                 >
+                  {/* HOVER GRADIENT OVERLAY THAT FADES IN ON MOUSE OVER */}
                   <div className="absolute inset-0 bg-gradient-to-r from-[#012854] via-[#012F62] to-[#B77805] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-[#012854] text-[#B77805] group-hover:bg-white group-hover:text-[#012854] flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-md">
-                        <IconComponent className="w-6 h-6" />
+                    <div className="mb-6">
+                      <div className="w-14 h-14 rounded-2xl bg-[#012854] text-[#B77805] group-hover:bg-white group-hover:text-[#012854] flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-md">
+                        <IconComponent className="w-7 h-7" />
                       </div>
-                      <span className="text-2xl font-bold font-mono text-white/30 group-hover:text-white/40 transition-colors">
-                        {diff.num}
-                      </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-3 font-sans transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#012854] group-hover:text-white mb-3 font-sans transition-colors duration-300">
                       {diff.title}
                     </h3>
 
-                    <p className="text-sm text-gray-300 group-hover:text-blue-100/90 font-normal leading-relaxed transition-colors duration-300">
+                    <p className="text-sm sm:text-base text-[#3D3E42] group-hover:text-blue-100/90 font-normal leading-relaxed transition-colors duration-300">
                       {diff.desc}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

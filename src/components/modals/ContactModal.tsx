@@ -5,17 +5,24 @@ import type { ContactFormData } from '../../types';
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  defaultService?: string;
 }
 
-export function ContactModal({ isOpen, onClose }: ContactModalProps) {
+export function ContactModal({ isOpen, onClose, defaultService }: ContactModalProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    service: 'IT Expertise',
+    service: defaultService || 'IT Services',
     budget: '$10k - $25k',
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  React.useEffect(() => {
+    if (defaultService) {
+      setFormData((prev) => ({ ...prev, service: defaultService }));
+    }
+  }, [defaultService, isOpen]);
 
   if (!isOpen) return null;
 

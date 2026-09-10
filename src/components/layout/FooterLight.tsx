@@ -3,22 +3,22 @@ import { LinkedinIcon, TwitterIcon, GithubIcon, InstagramIcon } from '../common/
 import { servicesList } from '../../data/servicesData';
 import { productsList } from '../../data/productsData';
 
-interface FooterProps {
+interface FooterLightProps {
   onOpenContactModal: () => void;
   onSelectServiceModal?: (service: any) => void;
   onNavigateToServices?: (serviceId?: string) => void;
   onNavigateHome?: (sectionId?: string) => void;
 }
 
-export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHome }: FooterProps) {
+export function FooterLight({ onOpenContactModal, onNavigateToServices, onNavigateHome }: FooterLightProps) {
   return (
-    <footer className="relative bg-[#050406] text-white border-t border-white/10 pt-8 md:pt-10 pb-5 overflow-hidden">
+    <footer className="relative bg-[#012854] text-white pt-12 md:pt-16 pb-6 overflow-hidden border-t border-blue-900/50 font-sans">
       {/* Ambient Top Glow Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-[#fac400]/40 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-[#B77805]/50 to-transparent" />
 
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
         {/* TOP FOOTER ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 border-b border-slate-800">
           {/* BRAND COLUMN */}
           <div className="lg:col-span-3 space-y-6">
             <button
@@ -35,12 +35,12 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
               />
             </button>
 
-            <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed max-w-sm">
               Aamesh Consulting Services Pvt. Ltd. delivers enterprise technology, AI automation, multi-cloud engineering, and strategic IT consulting that powers digital acceleration.
             </p>
 
             {/* SOCIAL LINKS */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-1">
               {[
                 { icon: TwitterIcon, label: 'ACS Twitter', href: '#' },
                 { icon: LinkedinIcon, label: 'ACS LinkedIn', href: '#' },
@@ -51,7 +51,7 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
                   key={idx}
                   href={item.href}
                   aria-label={item.label}
-                  className="w-8 h-8 rounded-full bg-[#B77805] border border-[#B77805] flex items-center justify-center text-white hover:bg-white hover:text-[#B77805] transition-colors shadow-sm"
+                  className="w-8 h-8 rounded-full bg-[#B77805] border border-[#B77805] flex items-center justify-center text-white hover:bg-[#012854] hover:border-amber-400 transition-colors shadow-sm"
                 >
                   <item.icon className="w-4 h-4" />
                 </a>
@@ -61,8 +61,8 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
 
           {/* QUICK LINKS */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#fac400] uppercase font-sans">
-              Navigation
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#CE9116] uppercase font-sans">
+              Quick Links
             </h4>
             <ul className="space-y-2.5">
               {[
@@ -105,9 +105,9 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
                 <li key={idx}>
                   <button
                     onClick={item.action}
-                    className="text-xs sm:text-sm text-gray-400 hover:text-[#fac400] transition-colors cursor-pointer flex items-center gap-2"
+                    className="text-xs sm:text-sm text-slate-300 hover:text-[#CE9116] transition-colors cursor-pointer flex items-center gap-2"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#fac400]/60 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B77805] shrink-0" />
                     <span>{item.label}</span>
                   </button>
                 </li>
@@ -117,8 +117,8 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
 
           {/* CORE SERVICES COLUMN */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#fac400] uppercase font-sans">
-              Core Services
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#CE9116] uppercase font-sans">
+              Our Services
             </h4>
             <ul className="space-y-2">
               {servicesList.map((service) => (
@@ -132,9 +132,9 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="text-xs sm:text-sm text-gray-400 hover:text-[#fac400] transition-colors cursor-pointer flex items-center gap-2 text-left"
+                    className="text-xs sm:text-sm text-slate-300 hover:text-[#CE9116] transition-colors cursor-pointer flex items-center gap-2 text-left"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#fac400]/60 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B77805] shrink-0" />
                     <span>{service.title}</span>
                   </button>
                 </li>
@@ -144,7 +144,7 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
 
           {/* OUR PRODUCTS COLUMN */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#fac400] uppercase font-sans">
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#CE9116] uppercase font-sans">
               Our Products
             </h4>
             <ul className="space-y-2">
@@ -156,9 +156,9 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                       else if (onNavigateHome) onNavigateHome('products-section');
                     }}
-                    className="text-xs sm:text-sm text-gray-400 hover:text-[#fac400] transition-colors cursor-pointer flex items-center gap-2 text-left"
+                    className="text-xs sm:text-sm text-slate-[#CBD5E1] text-slate-300 hover:text-[#CE9116] transition-colors cursor-pointer flex items-center gap-2 text-left"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#fac400]/60 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B77805] shrink-0" />
                     <span>{prod.title}</span>
                   </button>
                 </li>
@@ -168,48 +168,48 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
 
           {/* OUR OFFICES COLUMN */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold tracking-[0.2em] text-[#fac400] uppercase font-sans">
+            <h4 className="text-xs font-bold tracking-[0.2em] text-[#CE9116] uppercase font-sans">
               Our Offices
             </h4>
             <div className="space-y-4 pt-1">
               {/* INDIA OFFICE */}
               <div className="space-y-1.5">
-                <span className="text-xs font-semibold text-white tracking-wider uppercase block text-[#fac400]/90">
+                <span className="text-xs font-semibold text-white tracking-wider uppercase block text-[#FFD54A]">
                   India Office
                 </span>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-400 leading-relaxed">
-                  <MapPin className="w-4 h-4 text-[#fac400] shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <MapPin className="w-4 h-4 text-[#B77805] shrink-0 mt-0.5" />
                   <span>2nd floor, Melkiors Pride, Hitex Road, Hyderabad 500084</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400">
-                  <Phone className="w-4 h-4 text-[#fac400] shrink-0" />
-                  <a href="tel:+919703237002" className="hover:text-[#fac400] transition-colors">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <Phone className="w-4 h-4 text-[#B77805] shrink-0" />
+                  <a href="tel:+919703237002" className="hover:text-[#CE9116] transition-colors">
                     +91 9703237002
                   </a>
                 </div>
               </div>
 
               {/* UK OFFICE */}
-              <div className="space-y-1.5 pt-3 border-t border-white/10">
-                <span className="text-xs font-semibold text-white tracking-wider uppercase block text-[#fac400]/90">
+              <div className="space-y-1.5 pt-3 border-t border-slate-800">
+                <span className="text-xs font-semibold text-white tracking-wider uppercase block text-[#FFD54A]">
                   UK Office
                 </span>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-400 leading-relaxed">
-                  <MapPin className="w-4 h-4 text-[#fac400] shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <MapPin className="w-4 h-4 text-[#B77805] shrink-0 mt-0.5" />
                   <span>7 Bridge Street, Audenshaw, Manchester M34 5ZL</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400">
-                  <Phone className="w-4 h-4 text-[#fac400] shrink-0" />
-                  <a href="tel:+447747477426" className="hover:text-[#fac400] transition-colors">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <Phone className="w-4 h-4 text-[#B77805] shrink-0" />
+                  <a href="tel:+447747477426" className="hover:text-[#CE9116] transition-colors">
                     +44 7747477426
                   </a>
                 </div>
               </div>
 
               {/* EMAIL */}
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400 pt-3 border-t border-white/10">
-                <Mail className="w-4 h-4 text-[#fac400] shrink-0" />
-                <a href="mailto:info@aameshconsulting.com" className="hover:text-[#fac400] transition-colors">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 pt-3 border-t border-slate-800">
+                <Mail className="w-4 h-4 text-[#B77805] shrink-0" />
+                <a href="mailto:info@aameshconsulting.com" className="hover:text-[#CE9116] transition-colors">
                   info@aameshconsulting.com
                 </a>
               </div>
@@ -218,7 +218,7 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
         </div>
 
         {/* BOTTOM FOOTER ROW */}
-        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
             © {new Date().getFullYear()} Aamesh Consulting Services Pvt. Ltd. All rights reserved.
           </p>
@@ -235,7 +235,14 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
               onClick={onOpenContactModal}
               className="hover:text-white transition-colors cursor-pointer"
             >
-              Terms of Service
+              Terms of Use
+            </button>
+            <span>•</span>
+            <button
+              onClick={onOpenContactModal}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Sitemap
             </button>
           </div>
         </div>

@@ -13,14 +13,14 @@ export function ContactSection({ onOpenModal }: ContactSectionProps) {
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1200px] mx-auto text-center">
         {/* Badge */}
         <div className="inline-flex items-center justify-center mb-6">
-          <span className="text-xs font-bold tracking-[0.2em] text-[#fac400] bg-[#fac400]/10 border border-[#fac400]/30 px-5 py-2 rounded-full uppercase font-sans">
+          <span className="text-xs font-bold tracking-[0.2em] text-[#fac400] border border-[#fac400]/30 px-5 py-2 rounded-full uppercase font-sans">
             START YOUR TRANSFORMATION
           </span>
         </div>
 
         {/* Heading */}
         <h2 className="text-4xl sm:text-5xl md:text-[56px] font-semibold text-white tracking-tight leading-tight mb-6 font-sans">
-          Let's Build What's Next
+          Let's Build <span className="text-gradient-primary font-bold">What's Next</span>
         </h2>
 
         {/* Paragraph */}

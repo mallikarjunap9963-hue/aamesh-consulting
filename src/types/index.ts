@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type NavTab = 'HOME' | 'ABOUT US' | 'SERVICES' | 'TECHNOLOGY' | 'PRODUCTS' | 'CONTACT US';
+export type NavTab = 'HOME' | 'HOME 2' | 'ABOUT US' | 'SERVICES' | 'TECHNOLOGY' | 'PRODUCTS' | 'CONTACT US';
 
 export interface ServiceModalData {
   title: string;
@@ -14,13 +14,10 @@ export interface ServiceItem {
   num: string;
   title: string;
   desc: string;
+  bullets: string[];
   cta: string;
   image: string;
-  tags: string[];
-  metricLabel: string;
-  metricValue: string;
-  metricLegend: { label: string; pct: string; color: string }[];
-  modalData: ServiceModalData;
+  modalData?: ServiceModalData;
 }
 
 export interface MarqueeItem {
