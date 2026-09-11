@@ -105,65 +105,73 @@ export function HeroSectionLight({ prefersReducedMotion = false, onNavigateToSer
         {/* 5. HERO CARDS GRID WITH SCROLL TILT-TO-FIT ANIMATION */}
         <div className="relative w-full max-w-[1240px] mx-auto pt-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 z-20 relative px-2">
-            {/* Card 1: IT EXPERTISE (Gradient Colors, Tilted Left) */}
+            {/* Card 1: IT EXPERTISE */}
             <motion.div
               style={{ rotate: card1Rotate, y: card1Y, x: card1X }}
-              className="bg-gradient-to-br from-[#012854] via-[#012F62] to-[#B77805] border border-amber-400/30 rounded-2xl p-6 md:p-7 shadow-2xl hover:scale-[1.03] transition-transform duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] hover:scale-[1.03] transition-all duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
             >
               <div>
-                <Cpu className="w-9 h-9 text-amber-300 mb-5 group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider mb-2 font-sans">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Cpu className="w-6 h-6 text-[#03205c]" />
+                </div>
+                <h4 className="text-xs sm:text-sm font-extrabold text-[#000000] uppercase tracking-wider mb-2 font-sans">
                   IT EXPERTISE
                 </h4>
-                <p className="text-xs sm:text-sm text-blue-100/90 font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3E42] font-normal leading-relaxed">
                   End-to-end technology capabilities.
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 2: AI & AUTOMATION (White Card, Tilted Right) */}
+            {/* Card 2: AI & AUTOMATION */}
             <motion.div
               style={{ rotate: card2Rotate, y: card2Y, x: card2X }}
-              className="bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-6 md:p-7 shadow-xl hover:shadow-2xl hover:border-amber-400/60 hover:scale-[1.03] transition-transform duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] hover:scale-[1.03] transition-all duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
             >
               <div>
-                <Bot className="w-9 h-9 text-[#B77805] mb-5 group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xs sm:text-sm font-extrabold text-[#0F172A] uppercase tracking-wider mb-2 font-sans">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Bot className="w-6 h-6 text-[#03205c]" />
+                </div>
+                <h4 className="text-xs sm:text-sm font-extrabold text-[#000000] uppercase tracking-wider mb-2 font-sans">
                   AI &amp; AUTOMATION
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3E42] font-normal leading-relaxed">
                   Intelligent solutions for modern businesses.
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 3: ENTERPRISE SOLUTIONS (Gradient Colors, Tilted Left) */}
+            {/* Card 3: ENTERPRISE SOLUTIONS */}
             <motion.div
               style={{ rotate: card3Rotate, y: card3Y, x: card3X }}
-              className="bg-gradient-to-br from-[#012854] via-[#012F62] to-[#B77805] border border-amber-400/30 rounded-2xl p-6 md:p-7 shadow-2xl hover:scale-[1.03] transition-transform duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] hover:scale-[1.03] transition-all duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
             >
               <div>
-                <ShieldCheck className="w-9 h-9 text-amber-300 mb-5 group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider mb-2 font-sans">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6 text-[#03205c]" />
+                </div>
+                <h4 className="text-xs sm:text-sm font-extrabold text-[#000000] uppercase tracking-wider mb-2 font-sans">
                   ENTERPRISE SOLUTIONS
                 </h4>
-                <p className="text-xs sm:text-sm text-blue-100/90 font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3E42] font-normal leading-relaxed">
                   Cloud, ERP, data and cybersecurity.
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 4: FLEXIBLE ENGAGEMENT (White Card, Tilted Right) */}
+            {/* Card 4: FLEXIBLE ENGAGEMENT */}
             <motion.div
               style={{ rotate: card4Rotate, y: card4Y, x: card4X }}
-              className="bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-6 md:p-7 shadow-xl hover:shadow-2xl hover:border-amber-400/60 hover:scale-[1.03] transition-transform duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] hover:scale-[1.03] transition-all duration-300 flex flex-col justify-between min-h-[190px] text-left group cursor-pointer"
             >
               <div>
-                <Users className="w-9 h-9 text-[#B77805] mb-5 group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xs sm:text-sm font-extrabold text-[#0F172A] uppercase tracking-wider mb-2 font-sans">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Users className="w-6 h-6 text-[#03205c]" />
+                </div>
+                <h4 className="text-xs sm:text-sm font-extrabold text-[#000000] uppercase tracking-wider mb-2 font-sans">
                   FLEXIBLE ENGAGEMENT
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#3D3E42] font-normal leading-relaxed">
                   Consulting, projects, managed services and staffing.
                 </p>
               </div>

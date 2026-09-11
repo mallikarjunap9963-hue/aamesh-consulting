@@ -14,14 +14,12 @@ export function MarqueeRow({ direction = 'left', speedSeconds = 28, items, isLig
   return (
     <div className="relative w-full overflow-hidden py-2.5">
       {/* Left Edge Fade Overlay */}
-      <div className={`pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r ${
-        isLightTheme ? 'from-white to-transparent' : 'from-[#080709] to-transparent'
-      } z-10`} />
+      <div className={`pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r ${isLightTheme ? 'from-white to-transparent' : 'from-[#080709] to-transparent'
+        } z-10`} />
 
       {/* Right Edge Fade Overlay */}
-      <div className={`pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l ${
-        isLightTheme ? 'from-white to-transparent' : 'from-[#080709] to-transparent'
-      } z-10`} />
+      <div className={`pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l ${isLightTheme ? 'from-white to-transparent' : 'from-[#080709] to-transparent'
+        } z-10`} />
 
       {/* Scrolling Track */}
       <div
@@ -32,11 +30,10 @@ export function MarqueeRow({ direction = 'left', speedSeconds = 28, items, isLig
         {duplicatedItems.map((item, idx) => (
           <div
             key={idx}
-            className={`flex-shrink-0 rounded-2xl px-4.5 sm:px-5 py-3 flex items-center gap-3 transition-all duration-300 group whitespace-nowrap ${
-              isLightTheme
+            className={`flex-shrink-0 rounded-2xl px-4.5 sm:px-5 py-3 flex items-center gap-3 transition-all duration-300 group whitespace-nowrap ${isLightTheme
                 ? 'bg-white border border-slate-300/80 hover:border-amber-500/50 shadow-md hover:shadow-lg'
                 : 'bg-[#121118]/90 border border-white/10 hover:border-[#fac400]/40 shadow-lg'
-            }`}
+              }`}
           >
             {item.icon && (
               <item.icon
@@ -44,9 +41,8 @@ export function MarqueeRow({ direction = 'left', speedSeconds = 28, items, isLig
                 style={{ color: item.iconColor || (isLightTheme ? '#B77805' : '#fac400') }}
               />
             )}
-            <span className={`text-sm sm:text-base font-semibold tracking-wide ${
-              isLightTheme ? 'text-[#012854]' : 'text-white'
-            }`}>
+            <span className={`text-sm sm:text-base font-semibold tracking-wide ${isLightTheme ? 'text-[#012854]' : 'text-white'
+              }`}>
               {item.name}
             </span>
           </div>

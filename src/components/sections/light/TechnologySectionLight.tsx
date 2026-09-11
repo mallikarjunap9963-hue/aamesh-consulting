@@ -32,26 +32,26 @@ interface TechnologySectionLightProps {
   prefersReducedMotion?: boolean;
 }
 
-export function TechnologySectionLight({ }: TechnologySectionLightProps) {
+export function TechnologySectionLight(_props: TechnologySectionLightProps = {}) {
   return (
     <>
       {/* ================= TECHNOLOGY EXPERTISE SECTION ================= */}
-      <section id="technology" className="relative py-8 md:py-12 bg-white w-full overflow-hidden border-t border-slate-200/80">
+      <section id="technology" className="relative py-8 md:py-12 bg-white w-full overflow-hidden">
         <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
           {/* SECTION HEADER */}
           <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#000000] bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 TECHNOLOGY
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-6 font-sans">
+            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#000000] leading-[1.12] mb-6 font-sans">
               Technology Expertise for the <br />
               <span className="text-gradient-primary-light font-bold">Modern Enterprise</span>
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#3D3E42] font-normal leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#000000] font-normal leading-relaxed">
               Our teams bring expertise across enterprise platforms, modern application development, cloud, AI, automation, data, and DevOps.
             </p>
           </div>
@@ -118,22 +118,22 @@ export function TechnologySectionLight({ }: TechnologySectionLightProps) {
       </section>
 
       {/* ================= 8. WHY AAMESH SECTION ================= */}
-      <section id="why-aamesh" className="relative py-14 md:py-20 bg-white w-full overflow-hidden border-t border-slate-200/80">
+      <section id="why-aamesh" className="relative py-14 md:py-20 bg-white w-full overflow-hidden">
         <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
           {/* SECTION HEADER */}
           <div className="max-w-3xl mx-auto text-center mb-14 relative">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#000000] bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 WHY AAMESH
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-6 font-sans">
+            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#000000] leading-[1.12] mb-6 font-sans">
               More Than a Technology Vendor. <br />
               <span className="text-gradient-primary-light font-bold">A Partner for What's Next.</span>
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-[#3D3E42] font-normal leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#000000] font-normal leading-relaxed">
               We bring together consulting, engineering, products, and technology expertise to help businesses move from ideas and challenges to working solutions.
             </p>
           </div>
@@ -182,23 +182,18 @@ export function TechnologySectionLight({ }: TechnologySectionLightProps) {
               return (
                 <div
                   key={diff.id}
-                  className="relative bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-500 group shadow-[0_16px_40px_-10px_rgba(1,40,84,0.16)] hover:shadow-[0_24px_55px_-10px_rgba(183,120,5,0.28)] hover:-translate-y-1.5 min-h-[260px] overflow-hidden cursor-pointer"
+                  className="relative bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-300 group shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 min-h-[260px] cursor-pointer"
                 >
-                  {/* HOVER GRADIENT OVERLAY THAT FADES IN ON MOUSE OVER */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#012854] via-[#012F62] to-[#B77805] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
                   <div className="relative z-10">
-                    <div className="mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-[#012854] text-[#B77805] group-hover:bg-white group-hover:text-[#012854] flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-md">
-                        <IconComponent className="w-7 h-7" />
-                      </div>
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                      <IconComponent className="w-6 h-6 text-[#03205c]" />
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#012854] group-hover:text-white mb-3 font-sans transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#000000] mb-3 font-sans">
                       {diff.title}
                     </h3>
 
-                    <p className="text-sm sm:text-base text-[#3D3E42] group-hover:text-blue-100/90 font-normal leading-relaxed transition-colors duration-300">
+                    <p className="text-sm sm:text-base text-[#3D3E42] font-normal leading-relaxed">
                       {diff.desc}
                     </p>
                   </div>

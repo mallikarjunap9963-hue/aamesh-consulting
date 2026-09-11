@@ -103,12 +103,12 @@ export function Header({
 
   return (
     <header className={`w-full z-50 sticky top-0 transition-all duration-300 ${isScrolled
-        ? isLightTheme
-          ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-md py-3 md:py-3.5'
-          : 'bg-[#080709]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-3 md:py-3.5'
-        : isLightTheme
-          ? 'bg-transparent border-none shadow-none py-3 md:py-4'
-          : 'bg-[#080709]/85 backdrop-blur-lg border-none shadow-none py-3 md:py-3.5'
+      ? isLightTheme
+        ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-md py-3 md:py-3.5'
+        : 'bg-[#080709]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-3 md:py-3.5'
+      : isLightTheme
+        ? 'bg-transparent border-none shadow-none py-3 md:py-4'
+        : 'bg-[#080709]/85 backdrop-blur-lg border-none shadow-none py-3 md:py-3.5'
       }`}>
 
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -311,3 +311,4 @@ export function Header({
     </header>
   );
 }
+
