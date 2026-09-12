@@ -86,26 +86,8 @@ function App() {
     <div className="min-h-screen bg-[#F8F9FA] text-slate-900 flex flex-col font-sans selection:bg-amber-400 selection:text-slate-900">
       {currentPage === 'SERVICES' ? (
         <>
-          {/* LIGHT THEME TOP WRAPPER WITH HERO & HEADER ON UNIFORM AMBIENT VIDEO BACKGROUND */}
-          <div className="relative w-full bg-[#F0F4FA] overflow-hidden">
-            {/* Ambient Background Video (Covers Header & Hero Area) */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="https://cdn.prod.website-files.com/69f8ec4cbac699d72af25679%2F69fa5ac71aaf65a868d1fe1d_Bg-Video_poster.0000000.jpg"
-                className="w-full h-full object-cover opacity-30 mix-blend-multiply"
-              >
-                <source
-                  src="https://cdn.prod.website-files.com/69f8ec4cbac699d72af25679%2F69fa5ac71aaf65a868d1fe1d_Bg-Video_mp4.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-b from-[#F0F4FA]/30 via-[#F0F4FA]/60 to-[#F0F4FA]" />
-            </div>
-
+          {/* LIGHT THEME TOP WRAPPER WITH HERO & HEADER */}
+          <div className="relative w-full bg-white overflow-hidden">
             <Header
               activeTab={activeTab}
               setActiveTab={setActiveTab}

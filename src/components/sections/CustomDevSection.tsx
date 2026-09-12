@@ -94,44 +94,22 @@ export function CustomDevSection({ onOpenModal }: CustomDevSectionProps) {
     <section id="custom-product-development" className="relative py-8 md:py-12 bg-[#0e0c12] w-full overflow-visible border-t border-white/5">
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto overflow-visible">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start overflow-visible">
-          {/* LEFT COLUMN: STICKY TEXT & CONTENT */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6 pt-4">
+          {/* LEFT COLUMN: STICKY TEXT & CONTENT (60%) */}
+          <div className="lg:col-span-7 lg:sticky lg:top-28 space-y-6 pt-4">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="text-xs font-bold tracking-[0.25em] text-[#fac400] border border-[#fac400]/30 px-4 py-1.5 rounded-full uppercase font-sans">
                 FROM IDEA TO SOLUTION
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-[46px] font-normal tracking-tight text-white leading-[1.12] font-sans">
-              Have an Idea? <br />
-              <span className="text-gradient-primary font-medium">We Build It.</span>
+            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-normal tracking-tight text-white leading-[1.12] font-sans">
+              Have an Idea? <span className="text-gradient-primary font-medium">We Build It.</span>
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-gray-300 font-normal leading-relaxed">
               You don't need to know how to build the technology. You just need to know the problem you want to solve. Aamesh works with you to transform your business idea, workflow, or operational challenge into a working digital solution—from discovery and design to development, deployment, and ongoing support.
             </p>
 
-            {/* TRANSFORMATION FLOW PILLS IN LEFT COLUMN */}
-            <div className="pt-2 space-y-2">
-              <span className="text-[11px] font-bold text-[#fac400] tracking-widest uppercase block">
-                TRANSFORMATION FLOW
-              </span>
-              <div className="flex flex-col sm:flex-row items-center gap-2 text-xs font-semibold text-gray-200">
-                <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl text-white shadow-sm text-center w-full sm:w-auto">
-                  Your Business Idea
-                </span>
-                <span className="text-[#fac400] font-bold hidden sm:inline">→</span>
-                <span className="text-[#fac400] font-bold sm:hidden">↓</span>
-                <span className="border border-[#fac400]/30 px-3 py-1.5 rounded-xl text-[#fac400] shadow-sm text-center w-full sm:w-auto">
-                  Our Technology Expertise
-                </span>
-                <span className="text-[#fac400] font-bold hidden sm:inline">→</span>
-                <span className="text-[#fac400] font-bold sm:hidden">↓</span>
-                <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl text-white shadow-sm text-center w-full sm:w-auto">
-                  Your Working Solution
-                </span>
-              </div>
-            </div>
 
             {/* CTA Button */}
             <div className="pt-4">
@@ -145,8 +123,8 @@ export function CustomDevSection({ onOpenModal }: CustomDevSectionProps) {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: SCROLL-DRIVEN STICKY STACKED PROCESS CARDS */}
-          <div className="lg:col-span-7 relative overflow-visible pb-16">
+          {/* RIGHT COLUMN: SCROLL-DRIVEN STICKY STACKED PROCESS CARDS (40%) */}
+          <div className="lg:col-span-5 relative overflow-visible pb-16">
             {ideaToSolutionCards.map((proc, index) => (
               <IdeaToSolutionStackedCard
                 key={proc.num}

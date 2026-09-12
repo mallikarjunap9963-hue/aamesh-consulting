@@ -10,16 +10,8 @@ interface ServicesSectionProps {
 
 export function ServicesSection({ onOpenModal, onNavigateToServices }: ServicesSectionProps) {
   return (
-    <section id="services-section" className="relative py-12 md:py-16 bg-[#080709] w-full border-t border-white/5">
-      {/* Background Image Container */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <img
-          src="/bg-2.png"
-          alt="What We Do Background"
-          className="w-full h-full object-cover opacity-75"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080709]/60 via-[#080709]/30 to-[#080709]/60" />
-      </div>
+    <section id="services-section" className="relative py-12 md:py-16 bg-[#080709] w-full">
+
       {/* Soft Ambient Gold Glow Flare */}
       <div className="absolute top-1/3 right-1/4 w-[700px] h-[700px] bg-[#fac400]/5 rounded-full blur-[160px] pointer-events-none" />
 

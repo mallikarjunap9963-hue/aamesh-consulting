@@ -41,14 +41,14 @@ export function TechnologySectionLight(_props: TechnologySectionLightProps = {})
           {/* SECTION HEADER */}
           <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#000000] bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 TECHNOLOGY
               </span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#000000] leading-[1.12] mb-6 font-sans">
               Technology Expertise for the <br />
-              <span className="text-gradient-primary-light font-bold">Modern Enterprise</span>
+              <span className="text-[#000000] font-bold">Modern Enterprise</span>
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-[#000000] font-normal leading-relaxed">
@@ -123,14 +123,14 @@ export function TechnologySectionLight(_props: TechnologySectionLightProps = {})
           {/* SECTION HEADER */}
           <div className="max-w-3xl mx-auto text-center mb-14 relative">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#000000] bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 WHY AAMESH
               </span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight text-[#000000] leading-[1.12] mb-6 font-sans">
               More Than a Technology Vendor. <br />
-              <span className="text-gradient-primary-light font-bold">A Partner for What's Next.</span>
+              <span className="text-[#000000] font-bold">A Partner for What's Next.</span>
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-[#000000] font-normal leading-relaxed">
@@ -185,8 +185,8 @@ export function TechnologySectionLight(_props: TechnologySectionLightProps = {})
                   className="relative bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-300 group shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 min-h-[260px] cursor-pointer"
                 >
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-6 h-6 text-[#03205c]" />
+                    <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                      <IconComponent className="w-8 h-8 text-[#023582]" />
                     </div>
 
                     <h3 className="text-xl sm:text-2xl font-bold text-[#000000] mb-3 font-sans">

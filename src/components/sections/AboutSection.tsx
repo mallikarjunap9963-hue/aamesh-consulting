@@ -17,7 +17,7 @@ export function AboutSection({ prefersReducedMotion, onNavigateToServices }: Abo
   };
 
   return (
-    <section id="about" className="relative py-8 md:py-12 bg-[#0e0c12] w-full overflow-hidden border-t border-white/5">
+    <section id="about" className="relative py-8 md:py-12 bg-[#0e0c12] w-full overflow-hidden">
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* LEFT COLUMN: ABOUT US IMAGE */}

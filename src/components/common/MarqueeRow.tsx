@@ -31,17 +31,17 @@ export function MarqueeRow({ direction = 'left', speedSeconds = 28, items, isLig
           <div
             key={idx}
             className={`flex-shrink-0 rounded-2xl px-4.5 sm:px-5 py-3 flex items-center gap-3 transition-all duration-300 group whitespace-nowrap ${isLightTheme
-                ? 'bg-white border border-slate-300/80 hover:border-amber-500/50 shadow-md hover:shadow-lg'
+                ? 'bg-white border border-slate-200/90 hover:border-slate-300 shadow-sm hover:shadow-md'
                 : 'bg-[#121118]/90 border border-white/10 hover:border-[#fac400]/40 shadow-lg'
               }`}
           >
             {item.icon && (
               <item.icon
                 className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110 shrink-0"
-                style={{ color: item.iconColor || (isLightTheme ? '#B77805' : '#fac400') }}
+                style={{ color: item.iconColor || (isLightTheme ? '#023582' : '#fac400') }}
               />
             )}
-            <span className={`text-sm sm:text-base font-semibold tracking-wide ${isLightTheme ? 'text-[#012854]' : 'text-white'
+            <span className={`text-sm sm:text-base font-semibold tracking-wide ${isLightTheme ? 'text-[#000000]' : 'text-white'
               }`}>
               {item.name}
             </span>

@@ -54,9 +54,9 @@ export function ContactUsHeroSection({ onNavigateHome }: ContactUsHeroSectionPro
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#0F172A] leading-[1.15] max-w-4xl mb-5 font-sans"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#000000] leading-[1.15] max-w-4xl mb-5 font-sans"
         >
-          Let's Build <span className="bg-gradient-to-r from-[#03205c] via-[#021745] to-[#B77805] bg-clip-text text-transparent">What's Next</span> Together
+          Let's Build <span className="text-[#000000]">What's Next</span> Together
         </motion.h1>
 
         {/* 3. Subtitle */}
@@ -81,7 +81,7 @@ export function ContactUsHeroSection({ onNavigateHome }: ContactUsHeroSectionPro
             <span>24-Hour Response Guarantee</span>
           </div>
           <div className="flex items-center gap-2 bg-white/90 border border-slate-200/80 px-4 py-2 rounded-full shadow-sm">
-            <Globe className="w-4 h-4 text-[#03205c]" />
+            <Globe className="w-4 h-4 text-[#023582]" />
             <span>Global Offices (India & UK)</span>
           </div>
           <div className="flex items-center gap-2 bg-white/90 border border-slate-200/80 px-4 py-2 rounded-full shadow-sm">
@@ -173,16 +173,16 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
 
           {/* LEFT COLUMN: INTERACTIVE FORM CARD */}
           <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/90 shadow-[0_12px_40px_rgba(0,0,0,0.07)] p-6 sm:p-10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#03205c] via-[#021745] to-[#B77805]" />
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#023582] via-[#021745] to-[#B77805]" />
 
             {!submitted ? (
               <>
                 <div className="mb-8">
-                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#B77805] uppercase mb-2">
-                    <Sparkles className="w-4 h-4" />
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#000000] bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans mb-3">
+                    <Sparkles className="w-4 h-4 text-[#023582]" />
                     <span>Send Us a Message</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#03205c] tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#000000] tracking-tight">
                     Start Your Project Conversation
                   </h2>
                   <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
@@ -308,7 +308,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#03205c] hover:bg-[#021745] text-white font-bold py-4 rounded-xl text-xs sm:text-sm tracking-wider uppercase cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2.5 group disabled:opacity-75"
+                    className="w-full bg-[#023582] hover:bg-[#021745] text-white font-bold py-4 rounded-xl text-xs sm:text-sm tracking-wider uppercase cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2.5 group disabled:opacity-75"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
@@ -339,18 +339,18 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
                 </div>
                 <div>
                   <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] uppercase">INQUIRY RECEIVED</span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#03205c] mt-1 font-sans">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#000000] mt-1 font-sans">
                     Thank You, {formData.name || 'Partner'}!
                   </h3>
                   <p className="text-slate-600 text-sm max-w-md mx-auto mt-2 leading-relaxed">
-                    We have successfully received your inquiry for <span className="font-semibold text-slate-900">{formData.service}</span>. Our solution team will reach out to <span className="font-semibold text-[#03205c]">{formData.email}</span> within 24 hours.
+                    We have successfully received your inquiry for <span className="font-semibold text-slate-900">{formData.service}</span>. Our solution team will reach out to <span className="font-semibold text-[#023582]">{formData.email}</span> within 24 hours.
                   </p>
                 </div>
 
                 <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 max-w-md mx-auto text-left text-xs space-y-2">
                   <div className="flex justify-between border-b border-slate-200 pb-2">
                     <span className="text-slate-500">Reference Ticket:</span>
-                    <span className="font-mono font-bold text-[#03205c]">#ACS-2026-{(Math.floor(Math.random() * 9000) + 1000)}</span>
+                    <span className="font-mono font-bold text-[#023582]">#ACS-2026-{(Math.floor(Math.random() * 9000) + 1000)}</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-200 pb-2">
                     <span className="text-slate-500">Assigned Team:</span>
@@ -365,7 +365,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <button
                     onClick={resetForm}
-                    className="px-6 py-3 rounded-full bg-[#03205c] text-white font-bold text-xs tracking-wider uppercase hover:bg-[#021745] transition-colors cursor-pointer w-full sm:w-auto"
+                    className="px-6 py-3 rounded-full bg-[#023582] text-white font-bold text-xs tracking-wider uppercase hover:bg-[#021745] transition-colors cursor-pointer w-full sm:w-auto"
                   >
                     Submit Another Inquiry
                   </button>
@@ -394,7 +394,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
           <div className="lg:col-span-5 space-y-6">
 
             {/* DIRECT CONTACT CARD */}
-            <div className="bg-[#03205c] text-white rounded-3xl p-6 sm:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.12)] relative overflow-hidden">
+            <div className="bg-[#023582] text-white rounded-3xl p-6 sm:p-8 shadow-[0_10px_35px_rgba(0,0,0,0.12)] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="flex items-center gap-3 mb-6">
@@ -465,32 +465,32 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
 
             {/* WHY WORK WITH US CARD */}
             <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_4px_18px_rgba(0,0,0,0.05)] space-y-4">
-              <h3 className="text-base font-bold text-[#03205c] flex items-center gap-2">
+              <h3 className="text-base font-bold text-[#000000] flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-[#B77805]" />
                 <span>Why Partner With Aamesh Consulting?</span>
               </h3>
 
               <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
                 <li className="flex items-start gap-2.5">
-                  <div className="w-4.5 h-4.5 rounded-full bg-[#03205c] bg-gradient-to-br from-white/35 via-[#03205c] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-4.5 h-4.5 rounded-full bg-[#023582] bg-gradient-to-br from-white/35 via-[#023582] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     <Check className="w-3 h-3 text-white stroke-[3]" />
                   </div>
                   <span><strong>Rapid Team Deployment:</strong> Scale specialized engineering capacity in days, not months.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="w-4.5 h-4.5 rounded-full bg-[#03205c] bg-gradient-to-br from-white/35 via-[#03205c] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-4.5 h-4.5 rounded-full bg-[#023582] bg-gradient-to-br from-white/35 via-[#023582] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     <Check className="w-3 h-3 text-white stroke-[3]" />
                   </div>
                   <span><strong>Domain Mastery:</strong> AI automation, cloud engineering, enterprise transformation & full-stack development.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="w-4.5 h-4.5 rounded-full bg-[#03205c] bg-gradient-to-br from-white/35 via-[#03205c] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-4.5 h-4.5 rounded-full bg-[#023582] bg-gradient-to-br from-white/35 via-[#023582] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     <Check className="w-3 h-3 text-white stroke-[3]" />
                   </div>
                   <span><strong>Global Delivery Model:</strong> High performance team collaboration across IST & GMT time zones.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="w-4.5 h-4.5 rounded-full bg-[#03205c] bg-gradient-to-br from-white/35 via-[#03205c] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-4.5 h-4.5 rounded-full bg-[#023582] bg-gradient-to-br from-white/35 via-[#023582] to-[#011438] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     <Check className="w-3 h-3 text-white stroke-[3]" />
                   </div>
                   <span><strong>Transparent Governance:</strong> Direct access to senior architects and clear sprint deliverables.</span>
@@ -560,7 +560,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
                 href="https://maps.google.com/?q=2nd+floor,+Melkiors+Pride,+Hitex+Road,+Hyderabad+500084"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-[#03205c] hover:text-[#B77805] flex items-center gap-1.5 transition-colors"
+                className="text-xs font-bold text-[#023582] hover:text-[#B77805] flex items-center gap-1.5 transition-colors"
               >
                 <span>Open in Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -572,7 +572,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
           <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col justify-between">
             <div className="p-6 sm:p-8 space-y-4">
               <div className="flex items-center justify-between">
-                <span className="bg-blue-100 text-[#03205c] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-blue-100 text-[#023582] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   UK & European Office
                 </span>
                 <span className="text-xs text-slate-400 font-medium">EMEA Region</span>
@@ -582,20 +582,20 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
 
               <div className="space-y-3 text-xs sm:text-sm text-slate-600 pt-1">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#03205c] shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#023582] shrink-0 mt-0.5" />
                   <span className="leading-relaxed">
                     7 Bridge Street, Audenshaw, Manchester M34 5ZL, United Kingdom
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#03205c] shrink-0" />
-                  <a href="tel:+447747477426" className="hover:text-[#03205c] font-semibold text-slate-800 transition-colors">
+                  <Phone className="w-5 h-5 text-[#023582] shrink-0" />
+                  <a href="tel:+447747477426" className="hover:text-[#023582] font-semibold text-slate-800 transition-colors">
                     +44 7747477426
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-[#03205c] shrink-0" />
-                  <a href="mailto:info@aameshconsulting.com" className="hover:text-[#03205c] font-semibold text-slate-800 transition-colors">
+                  <Mail className="w-5 h-5 text-[#023582] shrink-0" />
+                  <a href="mailto:info@aameshconsulting.com" className="hover:text-[#023582] font-semibold text-slate-800 transition-colors">
                     info@aameshconsulting.com
                   </a>
                 </div>
@@ -609,7 +609,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
                 href="https://maps.google.com/?q=7+Bridge+Street,+Audenshaw,+Manchester+M34+5ZL"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-[#03205c] hover:text-[#B77805] flex items-center gap-1.5 transition-colors"
+                className="text-xs font-bold text-[#023582] hover:text-[#B77805] flex items-center gap-1.5 transition-colors"
               >
                 <span>Open in Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -622,7 +622,7 @@ export function ContactUsPage({ onNavigateHome, onNavigateToServices }: ContactU
 
       {/* HOW WE WORK / ENGAGEMENT STEPS */}
       <section className="relative w-full max-w-[1280px] mx-auto px-6 md:px-12 pt-16 sm:pt-24">
-        <div className="bg-gradient-to-br from-[#03205c] to-[#021745] text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
+        <div className="bg-gradient-to-br from-[#023582] to-[#021745] text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="text-xs font-bold tracking-[0.25em] text-[#FFD54A] uppercase">
               TRANSPARENT ONBOARDING

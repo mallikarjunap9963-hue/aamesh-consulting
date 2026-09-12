@@ -104,7 +104,7 @@ export function Header({
   return (
     <header className={`w-full z-50 sticky top-0 transition-all duration-300 ${isScrolled
       ? isLightTheme
-        ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-md py-3 md:py-3.5'
+        ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm py-3 md:py-3.5'
         : 'bg-[#080709]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-3 md:py-3.5'
       : isLightTheme
         ? 'bg-transparent border-none shadow-none py-3 md:py-4'
@@ -127,9 +127,9 @@ export function Header({
           />
         </button>
 
-        {/* DESKTOP NAV LINKS (SUSTHO FLOATING WHITE CAPSULE) */}
+        {/* DESKTOP NAV LINKS (FLOATING WHITE CAPSULE WITH SUBTLE BORDER) */}
         <nav className={isLightTheme
-          ? "hidden md:flex items-center gap-1 sm:gap-2 px-5 py-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-white/90 shadow-[0_4px_25px_rgba(0,0,0,0.06)]"
+          ? "hidden md:flex items-center gap-1 sm:gap-1.5 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-sm"
           : "hidden md:flex items-center gap-1 sm:gap-1.5 lg:gap-2"
         }>
           {navTabs.map((tab) => {
@@ -143,8 +143,10 @@ export function Header({
                 >
                   <button
                     onClick={() => handleNavClick('SERVICES')}
-                    className={`text-[13px] tracking-wider font-semibold transition-all duration-200 uppercase py-1.5 px-3.5 rounded-full cursor-pointer flex items-center gap-1.5 ${isLightTheme
-                      ? (activeTab === 'SERVICES' ? 'text-[#B77805] font-bold' : 'text-slate-700 hover:text-[#B77805]')
+                    className={`text-xs tracking-wide font-medium transition-all duration-200 uppercase py-1.5 px-3.5 rounded-xl cursor-pointer flex items-center gap-1.5 border border-transparent ${isLightTheme
+                      ? (activeTab === 'SERVICES'
+                        ? 'bg-white border-slate-200/90 shadow-[0_2px_10px_rgba(0,0,0,0.06)] text-slate-900 font-semibold'
+                        : 'text-slate-700 hover:bg-white hover:border-slate-200/90 hover:shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:text-slate-900')
                       : (activeTab === 'SERVICES' ? 'text-[#FFD54A] font-bold' : 'text-gray-300 hover:text-white')
                       }`}
                   >
@@ -162,7 +164,7 @@ export function Header({
                       }`}
                   >
                     <div className={`${isLightTheme
-                      ? 'bg-white border border-gray-200 shadow-2xl'
+                      ? 'bg-white border border-slate-200/90 shadow-xl'
                       : 'bg-[#001F4D]/95 backdrop-blur-xl border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.8)]'
                       } rounded-2xl p-2 space-y-1`}>
                       {servicesList.map((service) => (
@@ -174,11 +176,11 @@ export function Header({
                             if (onNavigateToServices) onNavigateToServices(service.id);
                           }}
                           className={`w-full text-left py-2 px-3 rounded-xl transition-all duration-200 block group/item cursor-pointer border border-transparent ${isLightTheme
-                            ? 'text-[#012854] hover:text-[#B77805]'
+                            ? 'text-slate-800 hover:bg-slate-50 hover:border-slate-200/80 hover:shadow-sm'
                             : 'text-gray-200 hover:text-[#FFD54A]'
                             }`}
                         >
-                          <span className={`text-xs sm:text-[13px] font-semibold transition-colors block ${isLightTheme ? 'group-hover/item:text-[#B77805]' : 'group-hover/item:text-[#FFD54A]'
+                          <span className={`text-xs font-medium transition-colors block ${isLightTheme ? 'text-slate-800' : 'group-hover/item:text-[#FFD54A]'
                             }`}>
                             {service.title}
                           </span>
@@ -194,8 +196,10 @@ export function Header({
               <button
                 key={tab}
                 onClick={() => handleNavClick(tab)}
-                className={`text-[13px] tracking-wider font-semibold transition-all duration-200 uppercase py-1.5 px-3.5 rounded-full cursor-pointer ${isLightTheme
-                  ? (activeTab === tab ? 'text-[#B77805] font-bold' : 'text-slate-700 hover:text-[#B77805]')
+                className={`text-xs tracking-wide font-medium transition-all duration-200 uppercase py-1.5 px-3.5 rounded-xl cursor-pointer border border-transparent ${isLightTheme
+                  ? (activeTab === tab
+                    ? 'bg-white border-slate-200/90 shadow-[0_2px_10px_rgba(0,0,0,0.06)] text-slate-900 font-semibold'
+                    : 'text-slate-700 hover:bg-white hover:border-slate-200/90 hover:shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:text-slate-900')
                   : (activeTab === tab ? 'text-[#FFD54A] font-bold' : 'text-gray-300 hover:text-white')
                   }`}
               >
@@ -210,8 +214,8 @@ export function Header({
           <button
             onClick={onOpenContactModal}
             className={isLightTheme
-              ? "bg-gradient-to-r from-[#012854] via-[#012F62] to-[#B77805] hover:from-[#012F62] hover:via-[#B77805] hover:to-[#CE9116] text-white font-bold text-xs tracking-wider uppercase px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group"
-              : "btn-primary-glow inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase text-[#001F4D] cursor-pointer group"
+              ? "bg-[#023582] hover:bg-[#01255e] text-white font-bold text-xs tracking-wider uppercase px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group"
+              : "btn-primary-glow inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase text-[#023582] cursor-pointer group"
             }
           >
             <span>Get Started</span>
@@ -226,7 +230,7 @@ export function Header({
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
-            <X className={`w-6 h-6 ${isLightTheme ? 'text-[#B8860B]' : 'text-[#FFD54A]'}`} />
+            <X className={`w-6 h-6 ${isLightTheme ? 'text-[#023582]' : 'text-[#FFD54A]'}`} />
           ) : (
             <Menu className="w-6 h-6" />
           )}
@@ -246,7 +250,7 @@ export function Header({
                   <div className="flex items-center justify-between">
                     <button
                       onClick={() => handleNavClick('SERVICES')}
-                      className={`text-left text-sm font-semibold tracking-wider py-1.5 uppercase cursor-pointer ${activeTab === 'SERVICES' ? (isLightTheme ? 'text-[#B8860B]' : 'text-[#FFD54A]') : ''
+                      className={`text-left text-sm font-semibold tracking-wider py-1.5 uppercase cursor-pointer ${activeTab === 'SERVICES' ? (isLightTheme ? 'text-[#023582]' : 'text-[#FFD54A]') : ''
                         }`}
                     >
                       SERVICES
@@ -285,7 +289,7 @@ export function Header({
               <button
                 key={tab}
                 onClick={() => handleNavClick(tab)}
-                className={`text-left text-sm font-semibold tracking-wider py-2 border-b border-gray-200/20 uppercase cursor-pointer ${activeTab === tab ? (isLightTheme ? 'text-[#B8860B]' : 'text-[#FFD54A]') : ''
+                className={`text-left text-sm font-semibold tracking-wider py-2 border-b border-gray-200/20 uppercase cursor-pointer ${activeTab === tab ? (isLightTheme ? 'text-[#023582]' : 'text-[#FFD54A]') : ''
                   }`}
               >
                 {tab}
@@ -299,7 +303,7 @@ export function Header({
               onOpenContactModal();
             }}
             className={isLightTheme
-              ? "w-full mt-2 py-3 rounded-xl font-bold text-xs tracking-wider uppercase bg-[#D4A017] text-white flex items-center justify-center gap-2"
+              ? "w-full mt-2 py-3 rounded-xl font-bold text-xs tracking-wider uppercase bg-[#023582] text-white flex items-center justify-center gap-2"
               : "btn-primary-glow w-full mt-2 py-3 rounded-xl font-bold text-xs tracking-wider uppercase text-[#001F4D] flex items-center justify-center gap-2"
             }
           >

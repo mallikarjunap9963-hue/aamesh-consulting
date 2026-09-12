@@ -66,7 +66,7 @@ export function ServicesHeroSection({
   const currentService = servicesList.find((s) => s.id === activeServiceId) || servicesList[0];
 
   return (
-    <section className="relative w-full flex flex-col justify-center overflow-hidden bg-transparent pt-6 pb-12 md:pt-10 md:pb-16 z-10 font-sans">
+    <section className="relative w-full flex flex-col justify-center overflow-hidden bg-white pt-6 pb-12 md:pt-10 md:pb-16 z-10 font-sans">
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 flex-1 flex flex-col items-center text-center">
 
         {/* 1. Breadcrumb Pill */}
@@ -79,15 +79,15 @@ export function ServicesHeroSection({
           <div className="inline-flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-white/80 border border-slate-200/80 backdrop-blur-md text-xs sm:text-sm text-slate-600 shadow-sm">
             <button
               onClick={() => onNavigateHome()}
-              className="inline-flex items-center gap-1.5 hover:text-[#B77805] transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1.5 hover:text-[#023582] transition-colors cursor-pointer group"
             >
-              <Home className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#B77805] transition-colors" />
+              <Home className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#023582] transition-colors" />
               <span>Home</span>
             </button>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-500 font-medium">Services</span>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#B77805] font-bold">{currentService.title}</span>
+            <span className="text-[#023582] font-bold">{currentService.title}</span>
           </div>
         </motion.div>
 
@@ -96,10 +96,10 @@ export function ServicesHeroSection({
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#0F172A] leading-[1.15] max-w-4xl mb-5 font-sans"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#000000] leading-[1.15] max-w-4xl mb-5 font-sans"
         >
           Technology Solutions That <br className="hidden sm:inline" />
-          <span className="text-gradient-primary-light font-extrabold inline-block px-1">
+          <span className="text-[#000000] font-extrabold inline-block px-1">
             Drive Real Progress
           </span>
         </motion.h1>
@@ -109,7 +109,7 @@ export function ServicesHeroSection({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl font-normal leading-relaxed mb-8"
+          className="text-sm sm:text-base md:text-lg text-[#000000] max-w-3xl font-normal leading-relaxed mb-8"
         >
           From strategy to execution, we deliver IT solutions, digital products, AI &amp; automation, and talent solutions to help businesses grow, adapt, and lead.
         </motion.p>
@@ -126,7 +126,7 @@ export function ServicesHeroSection({
               const el = document.getElementById('service-detail-section');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-[#B77805] hover:bg-[#9E6503] text-white font-extrabold px-8 py-4 rounded-full text-xs sm:text-sm tracking-wider uppercase shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 cursor-pointer group"
+            className="bg-[#023582] hover:bg-[#01255e] text-white font-extrabold px-8 py-4 rounded-full text-xs sm:text-sm tracking-wider uppercase shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 cursor-pointer group"
           >
             <span>EXPLORE OUR SERVICES</span>
             <ArrowUpRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -136,7 +136,7 @@ export function ServicesHeroSection({
             onClick={() => {
               if (onOpenContactModal) onOpenContactModal();
             }}
-            className="bg-[#012854] hover:bg-[#011F42] text-white border border-[#012854] font-extrabold px-8 py-4 rounded-full text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 cursor-pointer group"
+            className="bg-transparent hover:bg-slate-100/80 text-[#000000] border border-slate-300/90 hover:border-black font-extrabold px-8 py-4 rounded-full text-xs sm:text-sm tracking-wider uppercase shadow-sm transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 cursor-pointer group"
           >
             <span>GET IN TOUCH</span>
             <ArrowUpRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -807,34 +807,34 @@ export function ServicesPage({
             {/* Left Column: Heading, Paragraphs & Button */}
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+                <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                   {meta.numLabel}
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-[#012854] tracking-tight leading-[1.12] font-sans">
+              <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-[#000000] tracking-tight leading-[1.12] font-sans">
                 {currentService.id === 'it-services' && (
                   <>
                     Technology Solutions That <br className="hidden sm:inline" />
-                    <span className="text-gradient-primary-light font-bold">Support Your Business</span>
+                    <span className="text-[#000000] font-bold">Support Your Business</span>
                   </>
                 )}
                 {currentService.id === 'products-application-development' && (
                   <>
                     Turning Ideas into <br className="hidden sm:inline" />
-                    <span className="text-gradient-primary-light font-bold">Digital Solutions</span>
+                    <span className="text-[#000000] font-bold">Digital Solutions</span>
                   </>
                 )}
                 {currentService.id === 'ai-automation-services' && (
                   <>
                     Intelligent Capabilities &amp; <br className="hidden sm:inline" />
-                    <span className="text-gradient-primary-light font-bold">Scalable Automation</span>
+                    <span className="text-[#000000] font-bold">Scalable Automation</span>
                   </>
                 )}
                 {currentService.id === 'recruitment-solutions' && (
                   <>
                     Connecting Businesses with <br className="hidden sm:inline" />
-                    <span className="text-gradient-primary-light font-bold">the Right Talent</span>
+                    <span className="text-[#000000] font-bold">the Right Talent</span>
                   </>
                 )}
               </h2>
@@ -864,8 +864,8 @@ export function ServicesPage({
               </div>
 
               {meta.approachClosing && (
-                <div className="border-l-4 border-[#B77805] bg-amber-500/10 pl-4 py-3.5 pr-4 rounded-r-xl">
-                  <p className="text-xs sm:text-sm text-[#012854] font-medium italic leading-relaxed">
+                <div className="border-l-4 border-[#023582] bg-blue-50/50 pl-4 py-3.5 pr-4 rounded-r-xl">
+                  <p className="text-xs sm:text-sm text-[#023582] font-medium italic leading-relaxed">
                     {meta.approachClosing}
                   </p>
                 </div>
@@ -874,7 +874,7 @@ export function ServicesPage({
               <div className="pt-2">
                 <button
                   onClick={() => onOpenModal(currentService.title)}
-                  className="bg-gradient-to-r from-[#012854] via-[#012F62] to-[#B77805] hover:from-[#012F62] hover:via-[#B77805] hover:to-[#CE9116] text-white font-extrabold px-8 py-3.5 rounded-full text-xs sm:text-sm tracking-wider uppercase cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 group"
+                  className="bg-[#023582] hover:bg-[#01255e] text-white font-extrabold px-8 py-3.5 rounded-full text-xs sm:text-sm tracking-wider uppercase cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 group"
                 >
                   <span>Discuss Your Requirements</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -884,7 +884,7 @@ export function ServicesPage({
 
             {/* Right Column: Floating Cloud Ecosystem Visual */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
-              <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-blue-200/80 shadow-[0_20px_50px_-10px_rgba(1,40,84,0.25)] group-hover:shadow-[0_25px_60px_-10px_rgba(183,120,5,0.35)] transition-all duration-500 group">
+              <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.06)] group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] transition-all duration-500 group">
                 <img
                   src={meta.cloudImage}
                   alt={currentService.title}
@@ -905,13 +905,13 @@ export function ServicesPage({
           {/* Centered Section Header & Description */}
           <div className="max-w-4xl mx-auto text-center mb-10 md:mb-14">
             <div className="inline-flex items-center justify-center gap-2 mb-4">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 {meta.includeTitle}
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold tracking-tight text-[#012854] leading-[1.12] mb-5 font-sans">
+            <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold tracking-tight text-[#000000] leading-[1.12] mb-5 font-sans">
               Comprehensive Capabilities <br className="hidden sm:inline" />
-              <span className="text-gradient-primary-light font-bold">Built Around Your Needs</span>
+              <span className="text-[#000000] font-bold">Built Around Your Needs</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-[#3D3E42] font-normal leading-relaxed max-w-2xl mx-auto">
               {meta.quote}
@@ -939,7 +939,7 @@ export function ServicesPage({
                       } group-hover/card:rotate-y-180`}
                   >
                     {/* FRONT FACE: Clean Image + Service Name Overlay Only */}
-                    <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border border-blue-200/80 group-hover/card:border-amber-500/50 shadow-lg group-hover/card:shadow-[0_20px_45px_-10px_rgba(1,40,84,0.35)] flex flex-col justify-end p-5 transition-all duration-500 bg-white">
+                    <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border border-slate-200/90 group-hover/card:border-slate-300 shadow-[0_8px_30px_rgba(0,0,0,0.06)] group-hover/card:shadow-[0_16px_40px_rgba(0,0,0,0.1)] flex flex-col justify-end p-5 transition-all duration-500 bg-white">
                       <img
                         src={deliverableImg}
                         alt={item}
@@ -959,7 +959,7 @@ export function ServicesPage({
                     </div>
 
                     {/* BACK FACE (Rotated 180deg): Clean Standalone Icon + Title + Description + Bullet List */}
-                    <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl overflow-hidden border border-[#B77805]/40 shadow-2xl bg-gradient-to-br from-[#012854] via-[#01346e] to-[#012147] p-5 sm:p-6 flex flex-col justify-center space-y-3.5 text-left text-white">
+                    <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-gradient-to-br from-[#023582] via-[#01346e] to-[#012147] p-5 sm:p-6 flex flex-col justify-center space-y-3.5 text-left text-white">
                       {/* Subtle Ambient Glow */}
                       <div className="absolute -top-16 -right-16 w-36 h-36 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
 
@@ -983,7 +983,7 @@ export function ServicesPage({
                           <div className="w-full space-y-2 text-left pt-1">
                             {detail.points.map((pt, pIdx) => (
                               <div key={pIdx} className="flex items-center gap-2.5 text-xs text-slate-100">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#FFD54A] shrink-0" />
+                                <CheckCircle2 className="w-4 h-4 text-white fill-[#023582] shrink-0" />
                                 <span className="leading-snug font-medium">{pt}</span>
                               </div>
                             ))}
@@ -1002,11 +1002,11 @@ export function ServicesPage({
             5. OUR APPROACH SECTION (Unified Card Container)
             ======================================================== */}
         <section className="py-8 md:py-12">
-          <div className="bg-white border border-blue-200/80 rounded-2xl sm:rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_-10px_rgba(1,40,84,0.12)] hover:shadow-[0_25px_60px_-10px_rgba(1,40,84,0.18)] transition-all duration-500 relative overflow-hidden">
+          <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden">
 
             {/* Top-Left Section Title Badge */}
             <div className="inline-flex items-center gap-2 mb-8 sm:mb-10 relative z-10">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 OUR APPROACH
               </span>
             </div>
@@ -1029,16 +1029,16 @@ export function ServicesPage({
                   >
                     <div className="flex items-start gap-3.5 sm:gap-4">
                       {/* Icon - Larger size, no background circles */}
-                      <div className="flex items-center justify-center text-[#B77805] shrink-0 mt-0.5">
-                        <StepIcon className="w-9 h-9 sm:w-10 sm:h-10 text-[#B77805]" />
+                      <div className="flex items-center justify-center text-[#023582] shrink-0 mt-0.5">
+                        <StepIcon className="w-9 h-9 sm:w-10 sm:h-10 text-[#023582]" />
                       </div>
 
                       {/* Number, Title, Description */}
                       <div className="space-y-1">
-                        <div className="text-xl sm:text-2xl font-bold font-mono text-[#012854]/40 leading-none">
+                        <div className="text-xl sm:text-2xl font-bold font-mono text-[#023582]/40 leading-none">
                           {step.num}
                         </div>
-                        <h4 className="text-base sm:text-lg font-bold text-[#012854] tracking-tight leading-snug">
+                        <h4 className="text-base sm:text-lg font-bold text-[#000000] tracking-tight leading-snug">
                           {step.title}
                         </h4>
                         <p className="text-xs sm:text-[13px] text-[#3D3E42] leading-relaxed font-normal pt-0.5">
@@ -1049,8 +1049,8 @@ export function ServicesPage({
 
                     {/* Arrow (Steps 0, 1, 2 only) */}
                     {idx < 3 && (
-                      <div className="shrink-0 pt-2 text-[#B77805]">
-                        <ArrowRight className="w-4 h-4 text-[#B77805]" />
+                      <div className="shrink-0 pt-2 text-[#023582]">
+                        <ArrowRight className="w-4 h-4 text-[#023582]" />
                       </div>
                     )}
                   </div>
@@ -1065,7 +1065,7 @@ export function ServicesPage({
             ======================================================== */}
         <section className="py-8 md:py-12">
           <div className="inline-flex items-center gap-2 mb-8">
-            <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+            <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
               KEY BENEFITS
             </span>
           </div>
@@ -1075,11 +1075,11 @@ export function ServicesPage({
               const BenefitIcon = benefit.icon;
 
               return (
-                <div key={idx} className="flex flex-col items-center group bg-white border border-blue-200/80 rounded-2xl p-5 shadow-md hover:shadow-[0_15px_35px_-8px_rgba(1,40,84,0.18)] transition-all duration-300">
-                  <div className="mb-3 text-[#B77805] transition-transform duration-300 group-hover:scale-110">
-                    <BenefitIcon className="w-10 h-10 sm:w-12 sm:h-12 text-[#B77805] drop-shadow-sm" />
+                <div key={idx} className="flex flex-col items-center group bg-white border border-slate-200/90 rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] transition-all duration-300">
+                  <div className="mb-3 text-[#023582] transition-transform duration-300 group-hover:scale-110">
+                    <BenefitIcon className="w-10 h-10 sm:w-12 sm:h-12 text-[#023582] drop-shadow-sm" />
                   </div>
-                  <h5 className="text-xs sm:text-sm font-semibold text-[#012854] leading-snug group-hover:text-[#B77805] transition-colors">
+                  <h5 className="text-xs sm:text-sm font-semibold text-[#000000] leading-snug transition-colors">
                     {benefit.title}
                   </h5>
                 </div>
@@ -1094,7 +1094,7 @@ export function ServicesPage({
         <section className="py-8 md:py-12">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center justify-center gap-2 mb-3">
-              <span className="text-xs font-bold tracking-[0.25em] text-[#B77805] border border-amber-500/30 px-4 py-1.5 rounded-full uppercase font-sans">
+              <span className="text-xs font-bold tracking-[0.2em] text-slate-600 bg-white border border-slate-200/90 shadow-[0_4px_18px_rgba(0,0,0,0.06)] px-5 py-2 rounded-full uppercase font-sans">
                 EXPLORE OUR OTHER SERVICES
               </span>
             </div>
@@ -1107,7 +1107,7 @@ export function ServicesPage({
             {otherServices.map((service) => (
               <div
                 key={service.id}
-                className="bg-white border border-blue-200/80 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 transition-all duration-300 shadow-lg hover:shadow-[0_25px_60px_-12px_rgba(1,40,84,0.22)]"
+                className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-slate-300 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)]"
               >
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden shadow-md">
                   <img
@@ -1120,7 +1120,7 @@ export function ServicesPage({
 
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div>
-                    <h4 className="text-lg sm:text-xl font-bold text-[#012854] mb-2 group-hover:text-[#B77805] transition-colors leading-snug font-sans">
+                    <h4 className="text-lg sm:text-xl font-bold text-[#000000] mb-2 transition-colors leading-snug font-sans">
                       {service.title}
                     </h4>
 
@@ -1135,7 +1135,7 @@ export function ServicesPage({
                         onSelectService(service.id);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#B77805] hover:text-[#012854] transition-colors cursor-pointer group/btn"
+                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#023582] hover:text-[#01255e] transition-colors cursor-pointer group/btn"
                     >
                       <span>Learn More</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -1152,15 +1152,15 @@ export function ServicesPage({
             ======================================================== */}
         <section className="py-8 md:py-12">
           <div
-            className="relative rounded-2xl md:rounded-3xl bg-[#012854] border border-amber-500/30 p-8 sm:p-10 md:p-12 overflow-hidden shadow-[0_25px_60px_-12px_rgba(1,40,84,0.4)] flex flex-col md:flex-row items-center justify-between gap-6 text-white"
+            className="relative rounded-2xl md:rounded-3xl bg-[#023582] border border-slate-200/90 p-8 sm:p-10 md:p-12 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.1)] flex flex-col md:flex-row items-center justify-between gap-6 text-white"
           >
             {/* Ambient Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#012854] via-[#01346e] to-[#012147] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#023582] via-[#01346e] to-[#012147] pointer-events-none" />
 
             {/* Left Content */}
             <div className="relative z-10 space-y-2 text-center md:text-left max-w-2xl">
               <h3 className="text-2xl sm:text-3xl md:text-[38px] font-bold tracking-tight text-white leading-[1.15] font-sans">
-                <span className="text-[#FFD54A]">{meta.ctaBannerTitle}</span>
+                <span>{meta.ctaBannerTitle}</span>
               </h3>
               <p className="text-sm sm:text-base text-slate-200 font-normal leading-relaxed">
                 {meta.ctaBannerSub}
@@ -1170,7 +1170,7 @@ export function ServicesPage({
             {/* Right Action Button */}
             <button
               onClick={() => onOpenModal(currentService.title)}
-              className="relative z-10 bg-[#B77805] hover:bg-white text-white hover:text-[#012854] font-bold px-8 py-4 rounded-full text-xs sm:text-sm tracking-wider uppercase cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 shrink-0 group"
+              className="relative z-10 bg-white hover:bg-slate-100 text-[#023582] font-bold px-8 py-4 rounded-full text-xs sm:text-sm tracking-wider uppercase cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2.5 shrink-0 group"
             >
               <span>Get In Touch</span>
               <ArrowRight className="w-4 h-4 text-current transition-transform duration-300 group-hover:translate-x-1" />

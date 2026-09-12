@@ -6,7 +6,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ onOpenModal }: ContactSectionProps) {
   return (
-    <section id="contact-us" className="relative py-8 md:py-12 bg-[#080709] w-full border-t border-white/5 overflow-hidden">
+    <section id="contact-us" className="relative py-12 md:py-20 bg-[#080709] w-full overflow-hidden">
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#fac400]/5 rounded-full blur-[180px] pointer-events-none" />
 

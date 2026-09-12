@@ -178,7 +178,7 @@ function ProductCardsCarousel({ onOpenModal }: { onOpenModal: () => void }) {
 
 export function ProductsSection({ onOpenModal }: ProductsSectionProps) {
   return (
-    <section id="products-section" className="relative py-8 md:py-12 bg-[#080709] w-full border-t border-white/5 overflow-hidden">
+    <section id="products-section" className="relative py-12 md:py-16 bg-[#080709] w-full overflow-hidden">
       {/* Ambient Gold Radial Glow Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#fac400]/5 rounded-full blur-[150px] pointer-events-none" />
 

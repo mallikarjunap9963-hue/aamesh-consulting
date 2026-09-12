@@ -12,7 +12,7 @@ interface FooterLightProps {
 
 export function FooterLight({ onOpenContactModal, onNavigateToServices, onNavigateHome }: FooterLightProps) {
   return (
-    <footer className="relative bg-[#012854] text-white pt-12 md:pt-16 pb-6 overflow-hidden border-t border-blue-900/50 font-sans">
+    <footer className="relative bg-[#023582] text-white pt-12 md:pt-16 pb-6 overflow-hidden border-t border-blue-900/50 font-sans">
       {/* Ambient Top Glow Line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-[#B77805]/50 to-transparent" />
 

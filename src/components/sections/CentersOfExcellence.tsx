@@ -65,7 +65,7 @@ export function CentersOfExcellence({ onOpenModal }: CentersOfExcellenceProps) {
   ];
 
   return (
-    <section id="solutions" className="relative py-8 md:py-12 bg-[#0e0c12] border-t border-white/5 overflow-hidden">
+    <section id="solutions" className="relative py-12 md:py-16 bg-[#080709] overflow-hidden">
       <div className="relative z-10 w-full px-6 md:px-12 max-w-[1320px] mx-auto">
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-16 relative">
