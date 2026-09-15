@@ -102,3 +102,38 @@ export const servicesList: ServiceItem[] = [
     }
   }
 ];
+
+export const SERVICE_SLUG_MAP: Record<string, string> = {
+  'it-services': 'IT-Services',
+  'products-application-development': 'Products-Application-Development',
+  'ai-automation-services': 'AI-Automation-Services',
+  'recruitment-solutions': 'Recruitment-Solutions'
+};
+
+export function getServiceUrlSlug(serviceId: string): string {
+  return SERVICE_SLUG_MAP[serviceId] || 'IT-Services';
+}
+
+export function getServiceIdFromSlug(slug: string): string {
+  if (!slug) return 'it-services';
+  const clean = slug.replace(/^service-/, '').toLowerCase();
+
+  if (clean.includes('it-service') || clean.includes('it_service') || clean === 'it-services' || clean === 'it') {
+    return 'it-services';
+  }
+  if (clean.includes('product')) {
+    return 'products-application-development';
+  }
+  if (clean.includes('ai') || clean.includes('automation')) {
+    return 'ai-automation-services';
+  }
+  if (clean.includes('recruit') || clean.includes('staffing')) {
+    return 'recruitment-solutions';
+  }
+
+  const matched = servicesList.find(
+    (s) => s.id.toLowerCase() === clean || SERVICE_SLUG_MAP[s.id]?.toLowerCase() === clean
+  );
+  return matched ? matched.id : 'it-services';
+}
+

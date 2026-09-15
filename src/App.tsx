@@ -5,6 +5,7 @@ import { FooterLight } from './components/layout/FooterLight';
 import { ServiceModal } from './components/modals/ServiceModal';
 import { ServicesPage, ServicesHeroSection } from './pages/ServicesPage';
 import { Home2Page } from './pages/Home2Page';
+import { getServiceUrlSlug, getServiceIdFromSlug } from './data/servicesData';
 
 function App() {
   const [activeTab, setActiveTab] = useState<NavTab>('HOME');
@@ -21,19 +22,44 @@ function App() {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  // Hash-based sync for Services page and Home page
+  // Path & Hash sync for Services page and Home page
   useEffect(() => {
-    const handleHashSync = () => {
+    const handleUrlSync = () => {
+      const pathname = window.location.pathname;
       const hash = window.location.hash;
-      if (hash === '#services' || hash.startsWith('#service-') || hash.startsWith('#services/')) {
+
+      if (
+        pathname.startsWith('/services') ||
+        pathname.startsWith('/service-') ||
+        hash === '#services' ||
+        hash.startsWith('#service-') ||
+        hash.startsWith('#services/')
+      ) {
         setCurrentPage('SERVICES');
         setActiveTab('SERVICES');
-        if (hash.startsWith('#service-')) {
-          const serviceId = hash.replace('#service-', '');
-          setSelectedServiceId(serviceId);
+
+        let rawSlug = '';
+        if (pathname.includes('/services/service-')) {
+          rawSlug = pathname.split('/services/service-')[1];
+        } else if (pathname.includes('/services/')) {
+          rawSlug = pathname.split('/services/')[1];
+        } else if (pathname.startsWith('/service-')) {
+          rawSlug = pathname.replace('/service-', '');
+        } else if (hash.startsWith('#service-')) {
+          rawSlug = hash.replace('#service-', '');
         } else if (hash.startsWith('#services/')) {
-          const serviceId = hash.replace('#services/', '');
-          setSelectedServiceId(serviceId);
+          rawSlug = hash.replace('#services/', '');
+        }
+
+        rawSlug = rawSlug.replace(/\/$/, '');
+        const serviceId = getServiceIdFromSlug(rawSlug);
+        setSelectedServiceId(serviceId);
+
+        const canonicalSlug = getServiceUrlSlug(serviceId);
+        const cleanPath = `/services/${canonicalSlug}`;
+
+        if (hash.startsWith('#service') || window.location.pathname !== cleanPath) {
+          window.history.replaceState(null, '', cleanPath);
         }
       } else {
         setCurrentPage('HOME');
@@ -45,19 +71,26 @@ function App() {
       }
     };
 
-    handleHashSync();
-    window.addEventListener('hashchange', handleHashSync);
-    return () => window.removeEventListener('hashchange', handleHashSync);
+    handleUrlSync();
+    window.addEventListener('popstate', handleUrlSync);
+    window.addEventListener('hashchange', handleUrlSync);
+    return () => {
+      window.removeEventListener('popstate', handleUrlSync);
+      window.removeEventListener('hashchange', handleUrlSync);
+    };
   }, []);
 
   const navigateToServices = (serviceId?: string) => {
+    const targetId = serviceId || selectedServiceId || 'it-services';
     setCurrentPage('SERVICES');
     setActiveTab('SERVICES');
-    if (serviceId) {
-      setSelectedServiceId(serviceId);
-      window.location.hash = `#service-${serviceId}`;
-    } else {
-      window.location.hash = '#services';
+    setSelectedServiceId(targetId);
+
+    const canonicalSlug = getServiceUrlSlug(targetId);
+    const newPath = `/services/${canonicalSlug}`;
+
+    if (window.location.pathname !== newPath || window.location.hash) {
+      window.history.pushState(null, '', newPath);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -65,8 +98,9 @@ function App() {
   const navigateHome = (sectionId?: string) => {
     setCurrentPage('HOME');
     setActiveTab('HOME');
-    if (window.location.hash.startsWith('#service') || window.location.hash === '#services') {
-      window.history.pushState(null, '', window.location.pathname);
+    const targetPath = sectionId ? `/#${sectionId}` : '/';
+    if (window.location.pathname !== '/' || (sectionId && window.location.hash !== `#${sectionId}`)) {
+      window.history.pushState(null, '', targetPath);
     }
     if (sectionId) {
       setTimeout(() => {
@@ -109,7 +143,11 @@ function App() {
             activeServiceId={selectedServiceId}
             onSelectService={(id) => {
               setSelectedServiceId(id);
-              window.location.hash = `#service-${id}`;
+              const canonicalSlug = getServiceUrlSlug(id);
+              const newPath = `/services/${canonicalSlug}`;
+              if (window.location.pathname !== newPath || window.location.hash) {
+                window.history.pushState(null, '', newPath);
+              }
             }}
             onOpenModal={(serviceTitle) => handleOpenContactWithService(serviceTitle)}
             onNavigateHome={navigateHome}

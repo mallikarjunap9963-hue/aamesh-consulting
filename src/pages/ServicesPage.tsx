@@ -85,8 +85,6 @@ export function ServicesHeroSection({
               <span>Home</span>
             </button>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-500 font-medium">Services</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-[#023582] font-bold">{currentService.title}</span>
           </div>
         </motion.div>
