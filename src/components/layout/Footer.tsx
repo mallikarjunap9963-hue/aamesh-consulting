@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
 import { LinkedinIcon, TwitterIcon, GithubIcon, InstagramIcon } from '../common/SocialIcons';
 import { servicesList } from '../../data/servicesData';
 import { productsList } from '../../data/productsData';
@@ -40,7 +40,7 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
             </p>
 
             {/* SOCIAL LINKS */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-4 pt-2">
               {[
                 { icon: TwitterIcon, label: 'ACS Twitter', href: '#' },
                 { icon: LinkedinIcon, label: 'ACS LinkedIn', href: '#' },
@@ -51,9 +51,9 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
                   key={idx}
                   href={item.href}
                   aria-label={item.label}
-                  className="w-8 h-8 rounded-full bg-[#B77805] border border-[#B77805] flex items-center justify-center text-white hover:bg-white hover:text-[#B77805] transition-colors shadow-sm"
+                  className="text-gray-300 hover:text-[#fac400] transition-colors p-1 hover:scale-110 duration-200"
                 >
-                  <item.icon className="w-4 h-4" />
+                  <item.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -148,11 +148,11 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
               Our Products
             </h4>
             <ul className="space-y-2">
-              {productsList.map((prod, idx) => (
+              {productsList.slice(0, 4).map((prod, idx) => (
                 <li key={idx}>
                   <button
                     onClick={() => {
-                      const el = document.getElementById('products-section');
+                      const el = document.getElementById('products-section') || document.getElementById('cards-section');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                       else if (onNavigateHome) onNavigateHome('products-section');
                     }}
@@ -163,6 +163,19 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
                   </button>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('products-section') || document.getElementById('cards-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else if (onNavigateHome) onNavigateHome('products-section');
+                  }}
+                  className="text-xs sm:text-sm font-semibold text-[#fac400] hover:underline transition-colors cursor-pointer flex items-center gap-1.5 pt-1 text-left group"
+                >
+                  <span>Explore More</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-1" />
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -218,9 +231,21 @@ export function Footer({ onOpenContactModal, onNavigateToServices, onNavigateHom
         </div>
 
         {/* BOTTOM FOOTER ROW */}
-        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>
             © {new Date().getFullYear()} Aamesh Consulting Services Pvt. Ltd. All rights reserved.
+          </p>
+
+          <p className="flex items-center gap-1">
+            Designed by{' '}
+            <a
+              href="https://sunseaz.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-[#fac400] font-semibold underline underline-offset-2 transition-colors"
+            >
+              sunseaz
+            </a>
           </p>
 
           <div className="flex items-center gap-6">

@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
 import { LinkedinIcon, TwitterIcon, GithubIcon, InstagramIcon } from '../common/SocialIcons';
 import { servicesList } from '../../data/servicesData';
 import { productsList } from '../../data/productsData';
@@ -40,7 +40,7 @@ export function FooterLight({ onOpenContactModal, onNavigateToServices, onNaviga
             </p>
 
             {/* SOCIAL LINKS */}
-            <div className="flex items-center gap-3 pt-1">
+            <div className="flex items-center gap-4 pt-1">
               {[
                 { icon: TwitterIcon, label: 'ACS Twitter', href: '#' },
                 { icon: LinkedinIcon, label: 'ACS LinkedIn', href: '#' },
@@ -51,9 +51,9 @@ export function FooterLight({ onOpenContactModal, onNavigateToServices, onNaviga
                   key={idx}
                   href={item.href}
                   aria-label={item.label}
-                  className="w-8 h-8 rounded-full bg-[#B77805] border border-[#B77805] flex items-center justify-center text-white hover:bg-[#012854] hover:border-amber-400 transition-colors shadow-sm"
+                  className="text-slate-200 hover:text-[#FFD54A] transition-colors p-1 hover:scale-110 duration-200"
                 >
-                  <item.icon className="w-4 h-4" />
+                  <item.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -148,21 +148,34 @@ export function FooterLight({ onOpenContactModal, onNavigateToServices, onNaviga
               Our Products
             </h4>
             <ul className="space-y-2">
-              {productsList.map((prod, idx) => (
+              {productsList.slice(0, 4).map((prod, idx) => (
                 <li key={idx}>
                   <button
                     onClick={() => {
-                      const el = document.getElementById('products-section');
+                      const el = document.getElementById('products-section') || document.getElementById('cards-section');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                       else if (onNavigateHome) onNavigateHome('products-section');
                     }}
-                    className="text-xs sm:text-sm text-slate-[#CBD5E1] text-slate-300 hover:text-[#CE9116] transition-colors cursor-pointer flex items-center gap-2 text-left"
+                    className="text-xs sm:text-sm text-slate-300 hover:text-[#CE9116] transition-colors cursor-pointer flex items-center gap-2 text-left"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B77805] shrink-0" />
                     <span>{prod.title}</span>
                   </button>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('products-section') || document.getElementById('cards-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else if (onNavigateHome) onNavigateHome('products-section');
+                  }}
+                  className="text-xs sm:text-sm font-semibold text-[#FFD54A] hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 pt-1 text-left group"
+                >
+                  <span>Explore More</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:translate-x-1" />
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -218,9 +231,21 @@ export function FooterLight({ onOpenContactModal, onNavigateToServices, onNaviga
         </div>
 
         {/* BOTTOM FOOTER ROW */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
             © {new Date().getFullYear()} Aamesh Consulting Services Pvt. Ltd. All rights reserved.
+          </p>
+
+          <p className="flex items-center gap-1">
+            Designed by{' '}
+            <a
+              href="https://sunseaz.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-200 hover:text-[#FFD54A] font-semibold underline underline-offset-2 transition-colors"
+            >
+              sunseaz
+            </a>
           </p>
 
           <div className="flex items-center gap-6">
